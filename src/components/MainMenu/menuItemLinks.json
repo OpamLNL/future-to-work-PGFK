@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "link": "/favorites"
+    },
+    {
+        "id": "2",
+        "link": "/epicWorks"
+    },
+    {
+        "id": "3",
+        "link": "/characters"
+    },
+    {
+        "id": "4",
+        "link": "/links"
+    },
+    {
+        "id": "5",
+        "link": "/contacts"
+    }
+]

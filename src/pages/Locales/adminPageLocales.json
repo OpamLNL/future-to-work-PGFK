@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "label": {
+            "en-US" : "Home",
+            "uk-UA" : "Головна"
+        }
+    },
+    {
+        "id": "2",
+        "label": {
+            "en-US" : "Games",
+            "uk-UA" : "Ігри"
+        }
+    },
+    {
+        "id": "3",
+        "label": {
+            "en-US" : "About Us",
+            "uk-UA" : "Про нас"
+        }
+    },
+    {
+        "id": "4",
+        "label": {
+            "en-US" : "Contact",
+            "uk-UA" : "Контакти"
+        }
+    },
+    {
+        "id": "5",
+        "label": {
+            "en-US" : "News",
+            "uk-UA" : "Новини"
+        }
+    }
+]
+

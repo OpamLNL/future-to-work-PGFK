@@ -1,0 +1,9 @@
+.avatarImage{
+    width: 80%;
+    margin-top: 15px;
+
+    background-color: #C0C0C0;
+    border-color: #281f43;
+    border-style: solid;
+    border-radius: 25%;
+}

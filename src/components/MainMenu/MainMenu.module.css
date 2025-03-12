@@ -1,0 +1,7 @@
+.mainMenuContainer{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    align-content: center;
+}
+

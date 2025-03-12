@@ -1,0 +1,15 @@
+[
+  {
+    "searchWelcome": {
+      "en-US": "Just look, what we find",
+      "uk-UA": "Подивіться, що було знайдено"
+    }
+  },
+
+  {
+    "nothingOfEpicWorksMessage": {
+      "en-US": "Нічого із епічних творів(:",
+      "uk-UA": "Nothing on epics (:"
+    }
+  }
+]

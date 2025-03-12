@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "label": {
+            "en-US" : "Favorite",
+            "uk-UA" : "Обране"
+        }
+    },
+    {
+        "id": "2",
+        "label": {
+            "en-US" : "Epic",
+            "uk-UA" : "Епос"
+        }
+    },
+    {
+        "id": "3",
+        "label": {
+            "en-US" : "Characters",
+            "uk-UA" : "Персонажі"
+        }
+    },
+    {
+        "id": "4",
+        "label": {
+            "en-US" : "Links",
+            "uk-UA" : "Посилання"
+        }
+    },
+    {
+        "id": "5",
+        "label": {
+            "en-US" : "Contact",
+            "uk-UA" : "Наші контакти"
+        }
+    }
+]
+

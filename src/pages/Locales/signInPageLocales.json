@@ -1,0 +1,58 @@
+[
+  {
+    "lblUserName": {
+      "en-US": "User Name",
+      "uk-UA": "Ім'я користувача"
+    }
+  },
+
+  {
+    "lblEmail": {
+      "en-US": "Email",
+      "uk-UA": "Електронна пошта"
+    }
+  },
+
+  {
+    "lblPassword": {
+      "en-US": "Password",
+      "uk-UA": "Пароль"
+    }
+  },
+
+  {
+    "lblSigUp": {
+      "en-US": "Sign Up",
+      "uk-UA": "Зареєструватися"
+    }
+  },
+
+  {
+    "lblIsHaveAccount": {
+      "en-US": "Do not have Account? ",
+      "uk-UA": "Не маєте облікового запису? "
+    }
+  },
+
+  {
+    "lblSignUp": {
+      "en-US": "Sign Up",
+      "uk-UA": "Зареєструйтеся"
+    }
+  },
+
+  {
+    "lblLogIn": {
+      "en-US": "Login",
+      "uk-UA": "Увійдіть"
+    }
+  },
+
+  {
+    "lblSigIn": {
+      "en-US": "Sign Up",
+      "uk-UA": "Зареєструватися"
+    }
+  }
+
+]

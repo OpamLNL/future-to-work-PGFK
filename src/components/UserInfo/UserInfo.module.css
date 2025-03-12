@@ -1,0 +1,23 @@
+.userCard {
+    width: 70%;
+    height: 110%;
+
+    background-color: #1e1633;
+    border-color: #f7005e;
+    border-style: solid;
+    border-width: thin;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userCardText{
+    margin-bottom: 15px;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+

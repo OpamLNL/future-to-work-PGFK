@@ -1,0 +1,90 @@
+[
+  {
+    "lblUserName": {
+      "en-US": "User Name",
+      "uk-UA": "Ім'я користувача"
+    }
+  },
+
+  {
+    "lblEmail": {
+      "en-US": "Email",
+      "uk-UA": "Електронна пошта"
+    }
+  },
+
+  {
+    "lblPassword": {
+      "en-US": "Password",
+      "uk-UA": "Пароль"
+    }
+  },
+
+  {
+    "lblPoneNumber": {
+      "en-US": "Phone number",
+      "uk-UA": "Телефонний номер"
+    }
+  },
+
+  {
+    "lblBio": {
+      "en-US": "Bio",
+      "uk-UA": "Біографія"
+    }
+  },
+
+  {
+    "lblBirthday": {
+      "en-US": "Birthday",
+      "uk-UA": "Дата народження"
+    }
+  },
+
+  {
+    "lblLanguage": {
+      "en-US": "Language",
+      "uk-UA": "Мова"
+    }
+  },
+
+  {
+    "lblTimezone": {
+      "en-US": "Timezone",
+      "uk-UA": "Часовий пояс"
+    }
+  },
+
+  {
+    "lblAvatarUrl": {
+      "en-US": "Avatar Url",
+      "uk-UA": "Аватар URL"
+    }
+  },
+
+  {
+    "lblSigIn": {
+      "en-US": "Sign Up",
+      "uk-UA": "Зареєструватися"
+    }
+  },
+
+  {
+    "lblIsHaveAccount": {
+      "en-US": "Have Account? ",
+      "uk-UA": "Вже маєте обліковий запис? "
+    }
+  },
+
+  {
+    "lblLogIn": {
+      "en-US": "Login",
+      "uk-UA": "Увійдіть"
+    }
+  }
+
+
+
+
+
+]

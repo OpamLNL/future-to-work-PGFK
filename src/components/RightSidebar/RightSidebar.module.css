@@ -1,0 +1,11 @@
+.sideMenu{
+    flexShrink: 0;
+    position: fixed;
+    right: 0;
+    top: 220px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
