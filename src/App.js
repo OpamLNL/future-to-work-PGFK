@@ -105,29 +105,29 @@ export const App = () => {
 
 
 
-    useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (user && user.username) {
-            const url = `${apiBaseURL}/api/users/getUserByUsername/${encodeURIComponent(user.username)}`;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    if (!data || data.error) {
-                        console.error('User not found or error occurred:', data.error);
-                        logout();
-                    } else {
-                        console.log('User is valid:', data);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error verifying user:', error);
-                    logout();
-                });
-        } else {
-            logout();
-        }
-    }, []);
+    // useEffect(() => {
+    //     const user = JSON.parse(localStorage.getItem('user'));
+    //     if (user && user.username) {
+    //         const url = `${apiBaseURL}/api/users/getUserByUsername/${encodeURIComponent(user.username)}`;
+    //
+    //         fetch(url)
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 if (!data || data.error) {
+    //                     console.error('User not found or error occurred:', data.error);
+    //                     logout();
+    //                 } else {
+    //                     console.log('User is valid:', data);
+    //                 }
+    //             })
+    //             .catch(error => {
+    //                 console.error('Error verifying user:', error);
+    //                 logout();
+    //             });
+    //     } else {
+    //         logout();
+    //     }
+    // }, []);
 
 
 
