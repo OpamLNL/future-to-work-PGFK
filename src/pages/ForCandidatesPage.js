@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Container, CircularProgress } from '@mui/material';
-import {CharactersCard, RoundButton} from '../components';
+import { RoundButton} from '../components';
 
 import {speakText} from "../services/SpeakText";
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";

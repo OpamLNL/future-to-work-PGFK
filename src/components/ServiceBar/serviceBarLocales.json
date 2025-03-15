@@ -1,14 +1,14 @@
 [
   {
     "startButton1": {
-      "en-US": "Get Your",
-      "uk-UA": "Отримай Свій"
+      "en-US": "Get Your ",
+      "uk-UA": "Отримай Свій "
     }
   },
   {
     "startButton2": {
-      "en-US": "Fair View",
-      "uk-UA": "Чесний погляд"
+      "en-US": "",
+      "uk-UA": " Чесний Погляд "
     }
   }
 ]
