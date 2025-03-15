@@ -6,8 +6,10 @@ import { store } from './store/store';
 import {Header, LeftSidebar, MainMenuMini, Overlay, RightSidebar} from './components';
 import {
     AdminLayout,
+    AboutUsLayout,
     CandidateFormLayout,
     ContactLayout,
+    CandidatesFormLayout,
     EditProfileLayout,
     ForCandidatesLayout,
     ForEmployersLayout,
