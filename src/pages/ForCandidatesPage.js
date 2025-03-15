@@ -3,13 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Container, CircularProgress } from '@mui/material';
 import {CharactersCard, RoundButton} from '../components';
-import { fetchCharacters } from '../store/reducers/characters/charactersActions';
 
-import {
-    selectCharacters,
-    selectCharactersError,
-    selectCharactersLoading
-} from "../store/reducers/characters/charactersSelectors";
 import {speakText} from "../services/SpeakText";
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 

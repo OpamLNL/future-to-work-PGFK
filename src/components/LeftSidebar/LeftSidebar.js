@@ -1,5 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {ListCharacters} from "../ListCharacters/ListCharacters";
+import {MainMenu} from "../MainMenu/MainMenu";
 
 const useStyles = makeStyles((theme) => ({
     sidebar: {
@@ -13,10 +14,9 @@ export const LeftSidebar = () => {
 
     const classes = useStyles();
     return (
-        <div title="Персонажі" className={classes.sidebar}>
-            <ListCharacters />
-
-        </div>
+            <div className={classes.sidebar}>
+                <MainMenu/>
+            </div>
     );
 };
 

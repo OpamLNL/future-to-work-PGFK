@@ -1,7 +1,13 @@
-.mainMenuContainer{
+.mainMenuContainer {
     display: flex;
-    justify-content: start;
-    align-items: center;
-    align-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: fixed;
+    top: 13%;
+    left: 0;
+    height: 100vh;
+    background-color: transparent;
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 }
-

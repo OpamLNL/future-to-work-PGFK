@@ -11,9 +11,7 @@ export const Header = () =>{
 
 return(
             <div className={css.header}>
-                <div>
-                    <MainMenu />
-                </div>
+
                 <div>
                     <ServiceBar />
                 </div>
