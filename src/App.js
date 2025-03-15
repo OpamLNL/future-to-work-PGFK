@@ -1,17 +1,10 @@
-import { CssBaseline, makeStyles, ThemeProvider } from "@material-ui/core";
-import React, { useState } from "react";
-import { Provider } from "react-redux";
+import React, {useEffect, useState} from 'react';
+import { CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
+import {BrowserRouter as Router, Navigate, Route, Routes, useNavigate} from 'react-router-dom';
+import {Provider, useDispatch} from 'react-redux';
+import { store } from './store/store';
+import {Header, LeftSidebar, MainMenuMini, Overlay, RightSidebar} from './components';
 import {
-    Navigate,
-    Route,
-    BrowserRouter as Router,
-    Routes,
-} from "react-router-dom";
-import { Header, LeftSidebar, Overlay } from "./components";
-import { LanguageProvider } from "./language/language-context";
-import {
-    AboutUsLayout,
-    AccessibilityMapLayout,
     AdminLayout,
     CandidateFormLayout,
     ContactLayout,
@@ -19,75 +12,81 @@ import {
     ForCandidatesLayout,
     ForEmployersLayout,
     HowItWorksLayout,
+    StatisticLayout,
     MainLayout,
     ProfileLayout,
     SearchResultLayout,
     SignInLayout,
     SignUpLayout,
-    StatisticLayout,
-    UserProfileLayout,
-} from "./layouts";
-import { store } from "./store/store";
-import { darkTheme, lightTheme } from "./themes/theme";
-import { ThemeContext } from "./themes/theme-context";
+    UserProfileLayout
+} from './layouts';
+import {ThemeContext} from './themes/theme-context';
+import {darkTheme, lightTheme} from './themes/theme';
+import {LanguageProvider} from './language/language-context';
+import {apiBaseURL} from "./configs/urls";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
     mainContainer: {
-        display: "grid",
-        gridTemplateRows: "auto 1fr",
-        gridTemplateColumns: "15% 1fr 15%",
+        display: 'grid',
+        gridTemplateRows: 'auto 1fr',
+        gridTemplateColumns: '15% 1fr 15%',
         gridTemplateAreas: `
             'header header header'
             'left main main'
         `,
-        minHeight: "100vh",
-        position: "relative",
-        [theme.breakpoints.down("sm")]: {
-            width: "400px",
-            top: "160px",
-        },
+        minHeight: '100vh',
+        position: 'relative',
+        [theme.breakpoints.down('sm')]: {
+            width: '400px',
+            top: '160px',
+        }
+
     },
     mainContainerLeft: {
-        gridArea: "left",
+        gridArea: 'left',
         left: 0,
         top: 0,
         bottom: 0,
-        [theme.breakpoints.down("sm")]: {
-            display: "none",
-        },
+        [theme.breakpoints.down('sm')]: {
+            display: 'none',
+        }
     },
     mainContainerRight: {
-        gridArea: "right",
+        gridArea: 'right',
         right: 0,
         top: 0,
         bottom: 0,
-        [theme.breakpoints.down("md")]: {},
+        [theme.breakpoints.down('md')]: {
+
+        }
     },
     mainContainerCenter: {
-        gridArea: "main",
-        padding: "2px",
-        alignItems: "flex-end",
-        justifyContent: "flex-end",
-        flexDirection: "column",
+        gridArea: 'main',
+        padding: '2px',
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
+        flexDirection: 'column',
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down('sm')]: {
             marginLeft: 0,
             marginRight: 0,
         },
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down('md')]: {
             marginRight: 0,
         },
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down('sm')]: {
             marginLeft: 0,
             marginRight: 0,
-        },
+        }
     },
     header: {
-        gridArea: "header",
-        minWidth: "100%",
+        gridArea: 'header',
+        minWidth: '100%',
         zIndex: 1000,
     },
 }));
+
+
 
 export const App = () => {
     const [theme, setTheme] = useState(darkTheme);
@@ -100,11 +99,14 @@ export const App = () => {
     };
 
     const logout = () => {
-        localStorage.removeItem("jwtAccessToken");
-        localStorage.removeItem("jwtRefreshToken");
-        localStorage.removeItem("user");
-        localStorage.removeItem("favorites");
+        localStorage.removeItem('jwtAccessToken');
+        localStorage.removeItem('jwtRefreshToken');
+        localStorage.removeItem('user');
+        localStorage.removeItem('favorites');
+
     };
+
+
 
     // useEffect(() => {
     //     const user = JSON.parse(localStorage.getItem('user'));
@@ -130,15 +132,18 @@ export const App = () => {
     //     }
     // }, []);
 
+
+
     return (
         <Provider store={store}>
             <LanguageProvider>
                 <ThemeContext.Provider value={{ theme, setTheme: toggleTheme }}>
                     <ThemeProvider theme={theme}>
-                        <CssBaseline />
+                        <CssBaseline/>
                         <Router>
-                            <Overlay />
+                            <Overlay/>
                             <div className={classes.header}>
+                                <MainMenuMini/>
                                 <Header />
                             </div>
                             <div className={classes.mainContainer}>
@@ -214,7 +219,11 @@ export const App = () => {
                                             element={<ContactLayout />}
                                         />
 
-                                                  <Route path={'candidate-form'} element={<CandidateFormLayout />} />
+
+                                        <Route path={'statistic'} element={<StatisticLayout />} />
+                                        <Route path={'search-result/:searchKey'} element={<SearchResultLayout />} />
+                                        <Route path={'user-profile/:username'} element={<UserProfileLayout />} />
+                                        <Route path={'contacts'} element={<ContactLayout />} />
                                     </Routes>
                                 </div>
                                 {/*<div className={classes.mainContainerRight}>*/}

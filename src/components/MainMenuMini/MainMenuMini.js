@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
         boxShadow: '2px 0 5px rgba(0, 0, 0, 0.2)',
 
 
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('md')]: {
             display: 'none',
         }
     }

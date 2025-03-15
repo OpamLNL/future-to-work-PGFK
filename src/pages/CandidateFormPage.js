@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export const ForCandidatesPage = () => {
+export const CandidateFormPage = () => {
 
     const language = useContext(LanguageContext);
 
@@ -99,18 +99,7 @@ export const ForCandidatesPage = () => {
         <Container className={classes.pageContainer}>
 
 
-
-
-            <div className={classes.header}>
-                <Typography variant="h4" className={classes.title}>Для кандидатів</Typography>
-                <RoundButton onClick={() => handleSpeak("Для кандидатів") } disabled={isSpeaking}>
-                    <VolumeUpIcon />
-                </RoundButton>
-            </div>
-            <Typography variant="body1" className={classes.description}>
-                Ми допомагаємо кандидатам проходити співбесіди комфортно та без зайвого стресу. Виберіть зручний формат та отримайте чесну оцінку ваших навичок.
-            </Typography>
-            <Button variant="contained" color="primary">Заповнити анкету</Button>
+            <Button variant="contained" color="primary">Відправити</Button>
         </Container>
     );
 };
