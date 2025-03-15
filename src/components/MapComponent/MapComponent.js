@@ -1,7 +1,29 @@
 import { InfoWindow, Map, Marker } from "@vis.gl/react-google-maps";
-import React from "react";
+import React, { useState } from "react";
 
-const MapComponent = ({ markers }) => {
+const MapComponent = ({ data, apiKey, language = "uk" }) => {
+    const [markers, setMarkers] = useState([]);
+
+    // useEffect(() => {
+    //     const fetchCoordinates = async () => {
+    //         const markersData = await Promise.all(
+    //             data.map(async (item) => {
+    //                 const coordinates = await fetchCompaniesLocation(
+    //                     item.address,
+    //                     apiKey
+    //                 );
+    //                 return {
+    //                     ...item,
+    //                     coordinates,
+    //                 };
+    //             })
+    //         );
+    //         setMarkers(markersData);
+    //     };
+
+    //     fetchCoordinates();
+    // }, [data, apiKey]);
+
     return (
         <Map
             style={{ width: "1000px", height: "800px" }}
@@ -9,12 +31,14 @@ const MapComponent = ({ markers }) => {
             defaultZoom={3}
             gestureHandling="greedy"
             disableDefaultUI={true}
+            language={language}
         >
             {markers.map((marker, index) => (
-                <Marker key={index} position={marker.position}>
-                    <InfoWindow position={marker.position}>
+                <Marker key={index} position={marker.coordinates}>
+                    <InfoWindow position={marker.coordinates}>
                         <div>
-                            <h3>{marker.title}</h3>
+                            <h3>{marker.name}</h3>
+                            <p>{marker.address}</p>
                         </div>
                     </InfoWindow>
                 </Marker>
