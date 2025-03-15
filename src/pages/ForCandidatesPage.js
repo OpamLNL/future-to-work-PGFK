@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Container, CircularProgress } from '@mui/material';
-import { CharactersCard } from '../components';
+import {CharactersCard, RoundButton} from '../components';
 import { fetchCharacters } from '../store/reducers/characters/charactersActions';
 
 import {
@@ -10,6 +10,9 @@ import {
     selectCharactersError,
     selectCharactersLoading
 } from "../store/reducers/characters/charactersSelectors";
+import {speakText} from "../services/SpeakText";
+import VolumeUpIcon from "@material-ui/icons/VolumeUp";
+
 
 const useStyles = makeStyles((theme) => ({
     pageContainer: {
@@ -29,13 +32,19 @@ const useStyles = makeStyles((theme) => ({
 
 export const ForCandidatesPage = () => {
     const classes = useStyles();
-
+    const [isSpeaking, setIsSpeaking] = useState(false);
 
 
 
     return (
         <div className={classes.pageContainer}>
+            <div>
+                <RoundButton onClick={() => speakText("test", 'uk-UA')} disabled={isSpeaking}>
+                    <VolumeUpIcon/>
+                </RoundButton>
 
+
+            </div>
 
         </div>
     );

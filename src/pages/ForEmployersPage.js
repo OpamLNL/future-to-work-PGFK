@@ -94,93 +94,32 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const fetchCharacterById = async (characterId) => {
-    try {
-        const response = await fetch(`${apiBaseURL}${urls.characters.getById.replace(':id', characterId)}`);
-        if (!response.ok) {
-            throw new Error(`Error fetching character data: ${response.statusText}`);
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('Error fetching character data:', error);
-        throw error;
-    }
-};
+
 
 export const ForEmployersPage = ({ characterId }) => {
     const classes = useStyles();
-    const [characterData, setCharacterData] = useState(null);
-    const [loading, setLoading] = useState(true);
+
     const [isSpeaking, setIsSpeaking] = useState(false);
 
-    useEffect(() => {
-        fetchCharacterById(characterId)
-            .then(data => {
-                setCharacterData(data);
-                setLoading(false);
-            })
-            .catch(error => {
-                console.error('Error fetching character data:', error);
-                setLoading(false);
-            });
-    }, [characterId]);
-
-    if (loading) {
-        return (
-            <Container>
-                <CircularProgress color="secondary" />
-            </Container>
-        );
-    }
 
 
-    const images = parseImages(characterData.images);
-    const tags = parseTags(characterData?.tags);
+
     const user = JSON.parse(localStorage.getItem('user'));
 
 
     return (
         <div className={classes.characterContainer}>
             <div className={classes.headerContainer}>
-                <Typography variant="h4">{characterData?.name}</Typography>
                 <div>
-                    <RoundButton onClick={() => speakText(characterData?.name, 'uk-UA')} disabled={isSpeaking}>
+                    <RoundButton onClick={() => speakText("", 'uk-UA')} disabled={isSpeaking}>
                         <VolumeUpIcon />
                     </RoundButton>
-                    <FavoriteBadge objectId={characterData.id} type='character'/>
-                    
-                    {
-                        (user?.role === 'admin' ||  user?.role === 'editor') &&
-                        <EditButton />
-                    }
+
+
 
                 </div>
             </div>
-            <SectionContainer className={classes.tagsContainer}>
-                {tags.map((tag, index) => (
-                    <TagBadge key={index}>{tag}</TagBadge>
-                ))}
-            </SectionContainer>
-            <Card className={classes.image1Container}>
-                <img src={IMG_API + images[0]} alt={characterData?.name} className={classes.media} />
-                <img src={IMG_API + images[1]} alt={characterData?.name} className={classes.media} />
-            </Card>
 
-            <CardContent className={classes.detailsContainer}>
-                <Typography variant="subtitle1" className={classes.typography}>Original Name: {characterData?.name_original}</Typography>
-                <div>
-                    <RoundButton onClick={() => speakText(characterData?.name_original, 'nb-NO')} disabled={isSpeaking}>
-                        <VolumeUpIcon />
-                    </RoundButton>
-                </div>
-                <Typography variant="subtitle1" className={classes.typography}>English Name: {characterData?.name_english}</Typography>
-                <div>
-                    <RoundButton onClick={() => speakText(characterData?.name_english, 'en-US')} disabled={isSpeaking}>
-                        <VolumeUpIcon />
-                    </RoundButton>
-                </div>
-                <Typography>{characterData?.description}</Typography>
-            </CardContent>
 
         </div>
     );
