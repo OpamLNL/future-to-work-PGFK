@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Container } from '@mui/material';
+import { Typography, Container, Button } from '@mui/material';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
-import { RoundButton } from "../components";
+import { RoundButton } from "../components"; 
 import { speakText } from "../services/SpeakText";
 import { LanguageContext } from "../language/language-context";
 import employersPageLocales from './Locales/employersPageLocales.json';
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
             padding: theme.spacing(4),
         },
         overflow: 'hidden',
-        position: 'relative', // Додаємо для позиціонування кнопки
+        position: 'relative',
     },
     header: {
         display: 'flex',
@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.primary.contrastText,
         display: 'block',
         [theme.breakpoints.up('sm')]: {
-            display: 'block',
             fontSize: '2rem',
         },
         [theme.breakpoints.up('md')]: {
@@ -53,7 +52,6 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.primary.dark,
         display: 'block',
         [theme.breakpoints.up('sm')]: {
-            display: 'block',
             fontSize: '1.2rem',
             marginTop: theme.spacing(4),
         },
@@ -64,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         marginTop: theme.spacing(2),
-        padding: theme.spacing(1, 4),
+        padding: theme.spacing(1),
         fontSize: '1rem',
         [theme.breakpoints.up('sm')]: {
             fontSize: '1.2rem',
@@ -76,6 +74,25 @@ const useStyles = makeStyles((theme) => ({
         top: theme.spacing(2),
         right: theme.spacing(2),
     },
+    actionButtons: {
+        display: 'flex',
+        gap: theme.spacing(2),
+        marginTop: theme.spacing(2),
+    },
+    actionButton: {
+        padding: theme.spacing(1, 2),
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
+        '&:hover': {
+            backgroundColor: theme.palette.primary.dark,
+        },
+        [theme.breakpoints.up('sm')]: {
+            fontSize: '1.2rem',
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '1.5rem',
+        },
+    },
 }));
 
 export const ForEmployersPage = () => {
@@ -84,7 +101,6 @@ export const ForEmployersPage = () => {
     const language = useContext(LanguageContext);
     const lang = language.language;
 
-    // Отримуємо локалізований контент
     const content = {
         title: employersPageLocales.find(item => item.hasOwnProperty('title'))?.title[lang] || '',
         intro: employersPageLocales.find(item => item.hasOwnProperty('intro'))?.intro[lang] || '',
@@ -96,9 +112,9 @@ export const ForEmployersPage = () => {
         grantsDescription: employersPageLocales.find(item => item.hasOwnProperty('grantsDescription'))?.grantsDescription[lang] || '',
         callToAction: employersPageLocales.find(item => item.hasOwnProperty('callToAction'))?.callToAction[lang] || '',
         slogan: employersPageLocales.find(item => item.hasOwnProperty('slogan'))?.slogan[lang] || '',
+        registerButton: employersPageLocales.find(item => item.hasOwnProperty('registerButton'))?.registerButton[lang] || '',
+        statsButton: employersPageLocales.find(item => item.hasOwnProperty('statsButton'))?.statsButton[lang] || '',
     };
-
-    // Об'єднання тексту для озвучування
     const fullText = [
         content.title,
         content.intro,
@@ -114,6 +130,11 @@ export const ForEmployersPage = () => {
 
     const voiceLang = lang === 'en' ? 'en-US' : 'uk-UA';
 
+    const handleSpeak = () => {
+        setIsSpeaking(true);
+        speakText(fullText, voiceLang, () => setIsSpeaking(false));
+    };
+
     return (
         <Container className={classes.container}>
             <div className={classes.header}>
@@ -122,7 +143,7 @@ export const ForEmployersPage = () => {
                 </Typography>
                 <RoundButton
                     className={classes.button}
-                    onClick={() => speakText(fullText, voiceLang)}
+                    onClick={handleSpeak}
                     disabled={isSpeaking}
                 >
                     <VolumeUpIcon />
@@ -165,6 +186,26 @@ export const ForEmployersPage = () => {
             <Typography variant="h5" className={classes.title}>
                 "{content.slogan}"
             </Typography>
+            <div className={classes.actionButtons}>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.actionButton}
+                    onClick={() => console.log('Register clicked')}
+                >
+                    {content.registerButton}
+                </Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.actionButton}
+                    onClick={() => console.log('Stats clicked')}
+                >
+                    {content.statsButton}
+                </Button>
+            </div>
         </Container>
     );
 };
+
+export default ForEmployersPage;

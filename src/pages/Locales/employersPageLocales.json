@@ -71,6 +71,20 @@
         "uk-UA": "Приєднуйтесь до FairView сьогодні та станьте лідером у створенні робочого місця, де є місце для кожного."
       }
     },
+
+    
+  {
+    "registerButton": {
+      "en-US": "Register Now",
+      "uk-UA": "Зареєструватися зараз"
+    }
+  },
+  {
+    "statsButton": {
+      "en-US": "View Statistics",
+      "uk-UA": "Переглянути статистику"
+    }
+  },
     {
       "slogan": {
         "en-US": "There is a place in the world for every person.",
