@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
         top: 0,
         bottom: 0,
         [theme.breakpoints.down('sm')]: {
-            //display: 'none',
+            display: 'none',
         }
     },
     mainContainerRight: {
@@ -72,7 +72,7 @@ const useStyles = makeStyles(theme => ({
             marginRight: 0,
         },
         [theme.breakpoints.down('md')]: {
-            marginRight: '25%',
+            marginRight: 0,
         },
         [theme.breakpoints.down('sm')]: {
             marginLeft: 0,

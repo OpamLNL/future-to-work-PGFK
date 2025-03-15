@@ -20,6 +20,7 @@ export { ListEpicWorks } from './ListEpicWorks/ListEpicWorks';
 export { ListEpicWorksOfTypes } from './ListEpicWorksOfTypes/ListEpicWorksOfTypes';
 
 export { MainMenu } from './MainMenu/MainMenu';
+export { MainMenuMini } from './MainMenuMini/MainMenuMini';
 export { MenuItem } from './MenuItem/MenuItem';
 export { MicrophoneSwitcher } from './MicrophoneSwitcher/MicrophoneSwitcher';
 
