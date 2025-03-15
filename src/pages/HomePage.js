@@ -86,19 +86,19 @@ export const HomePage = () => {
                 {`${homePageLocales.find(item => item.hasOwnProperty('text1'))?.text1[language.language] || ''}`}
             </Typography>
             <br/>
-            <Typography variant="body1" className={classes.description}>
+            <Typography variant="h3" className={classes.title}>
                 {`${homePageLocales.find(item => item.hasOwnProperty('text2'))?.text2[language.language] || ''}`}
             </Typography>
             <br/>
-            <Typography variant="body1" className={classes.description}>
+            <Typography variant="h3" className={classes.title}>
                 {`${homePageLocales.find(item => item.hasOwnProperty('text3'))?.text3[language.language] || ''}`}
             </Typography>
             <br/>
-            <Typography variant="body1" className={classes.description}>
+            <Typography variant="h3" className={classes.title}>
                 {`${homePageLocales.find(item => item.hasOwnProperty('text4'))?.text4[language.language] || ''}`}
             </Typography>
             <br/>
-            <Typography variant="body1" className={classes.description}>
+            <Typography variant="h3" className={classes.title}>
                 {`${homePageLocales.find(item => item.hasOwnProperty('text5'))?.text5[language.language] || ''}`}
             </Typography>
 
