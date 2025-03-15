@@ -1,0 +1,80 @@
+[
+    {
+      "title": {
+        "en-US": "For Employers",
+        "uk-UA": "Для роботодавців"
+      }
+    },
+    {
+      "intro": {
+        "en-US": "FairView is a revolutionary platform designed to create barrier-free interviews, ensuring equal opportunities for every candidate. Our mission is to foster an inclusive hiring process that eliminates bias and discrimination, allowing companies to tap into a diverse pool of talent.",
+        "uk-UA": "FairView – це революційна платформа, створена для проведення безбар’єрних співбесід, що гарантують рівні можливості для кожного кандидата. Наша місія – сприяти інклюзивному процесу найму, усуваючи упередження та дискримінацію, щоб компанії могли залучати різноманітні таланти."
+      }
+    },
+    {
+      "benefitsTitle": {
+        "en-US": "Why FairView?",
+        "uk-UA": "Чому FairView?"
+      }
+    },
+    {
+      "benefitsItems": {
+        "en-US": [
+          "Interviews tailored to your needs – flexible formats including video, text, phone, or written tests.",
+          "No bias or discrimination – advanced technology ensures fair evaluations.",
+          "Accessibility for everyone – sign language support, subtitles, and adjustable timing.",
+          "A stress-free experience that helps candidates shine and companies thrive."
+        ],
+        "uk-UA": [
+          "Співбесіди, адаптовані до ваших потреб – гнучкі формати: відео, текст, телефон або письмові тести.",
+          "Жодних упереджень чи дискримінації – сучасні технології забезпечують справедливу оцінку.",
+          "Доступність для всіх – підтримка жестової мови, субтитри та гнучкий час.",
+          "Безстресове середовище, яке дозволяє кандидатам розкритися, а компаніям – процвітати."
+        ]
+      }
+    },
+    {
+      "inclusiveHiringTitle": {
+        "en-US": "Inclusive Hiring Made Simple",
+        "uk-UA": "Інклюзивний найм – це просто"
+      }
+    },
+    {
+      "inclusiveHiringItems": {
+        "en-US": [
+          "Connect with candidates who have special needs, bringing unique skills and perspectives.",
+          "Build an inclusive workplace that reflects your company’s values.",
+          "Leverage our system of reviews, statistics, and ratings to make informed hiring decisions."
+        ],
+        "uk-UA": [
+          "Зв’язок із кандидатами з особливими потребами, які приносять унікальні навички та перспективи.",
+          "Створення інклюзивного робочого середовища, що відображає цінності вашої компанії.",
+          "Використання нашої системи відгуків, статистики та рейтингів для прийняття обґрунтованих рішень."
+        ]
+      }
+    },
+    {
+      "grantsTitle": {
+        "en-US": "Support Ukraine’s Reconstruction",
+        "uk-UA": "Підтримка відбудови України"
+      }
+    },
+    {
+      "grantsDescription": {
+        "en-US": "FairView works closely with the government, providing analytical data to improve working conditions and increase inclusivity in business, and also gives companies a chance to receive grants to support the reconstruction of Ukraine",
+        "uk-UA": "FairView тісно співпрацює з державою, надаючи аналітичні дані для покращення умов праці та підвищення інклюзивності в бізнесі, а також дає компаніям шанс отримати гранти на підтримку відбудови України."
+      }
+    },
+    {
+      "callToAction": {
+        "en-US": "Join FairView today and lead the way in creating a workplace where everyone belongs.",
+        "uk-UA": "Приєднуйтесь до FairView сьогодні та станьте лідером у створенні робочого місця, де є місце для кожного."
+      }
+    },
+    {
+      "slogan": {
+        "en-US": "There is a place in the world for every person.",
+        "uk-UA": "Для кожної людини є місце у світі."
+      }
+    }
+  ]
