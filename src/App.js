@@ -13,6 +13,7 @@ import {
     AboutUsLayout,
     AccessibilityMapLayout,
     AdminLayout,
+    CandidateFormLayout,
     ContactLayout,
     EditProfileLayout,
     ForCandidatesLayout,
@@ -212,6 +213,8 @@ export const App = () => {
                                             path={"contacts"}
                                             element={<ContactLayout />}
                                         />
+
+                                                  <Route path={'candidate-form'} element={<CandidateFormLayout />} />
                                     </Routes>
                                 </div>
                                 {/*<div className={classes.mainContainerRight}>*/}
