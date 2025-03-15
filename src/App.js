@@ -3,7 +3,7 @@ import { CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
 import {BrowserRouter as Router, Navigate, Route, Routes, useNavigate} from 'react-router-dom';
 import {Provider, useDispatch} from 'react-redux';
 import { store } from './store/store';
-import { Header, LeftSidebar, Overlay, RightSidebar } from './components';
+import {Header, LeftSidebar, MainMenuMini, Overlay, RightSidebar} from './components';
 import {
     AdminLayout,
     AboutUsLayout,
@@ -143,6 +143,7 @@ export const App = () => {
                         <Router>
                             <Overlay/>
                             <div className={classes.header}>
+                                <MainMenuMini/>
                                 <Header />
                             </div>
                             <div className={classes.mainContainer}>

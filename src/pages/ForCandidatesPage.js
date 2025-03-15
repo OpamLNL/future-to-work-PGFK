@@ -10,7 +10,6 @@ import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 
 const useStyles = makeStyles((theme) => ({
     pageContainer: {
-        width: '1200px',
         padding: theme.spacing(4),
         margin: 'auto',
         color: theme.palette.text.primary,
