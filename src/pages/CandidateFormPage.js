@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'justify',
     },
 
+
     title: {
         fontSize: '3rem',
         fontFamily: theme.typography.fontFamily,
