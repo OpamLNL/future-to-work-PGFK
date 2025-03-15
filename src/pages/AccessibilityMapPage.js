@@ -1,42 +1,38 @@
-import { makeStyles } from "@material-ui/core/styles";
-import { Link, Typography, Grid } from '@mui/material';
-
-import links from '../assets/links.json';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
-        width: '100%',
-    },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
-    link: {
-        margin: theme.spacing(1),
-    }
-}));
+import { APIProvider } from "@vis.gl/react-google-maps";
+import React, { useState } from "react";
+import MapComponent from "../components/MapComponent/MapComponent";
+import SearchAddress from "../components/SearchAddress/SearchAddress";
+import { getCoordinates } from "../services/geocodeService";
 
 export const AccessibilityMapPage = () => {
-    const classes = useStyles();
+    const [markers, setMarkers] = useState([]);
+    const [error, setError] = useState(null);
+
+    const handleSearch = async (address) => {
+        const apiKey = "AIzaSyA9CUYQU5m1Gip5ZepcFS0dSTspiQZ6lgg";
+        try {
+            const location = await getCoordinates(address, apiKey);
+            if (location) {
+                setMarkers([
+                    ...markers,
+                    {
+                        position: location,
+                        title: address,
+                    },
+                ]);
+                setError(null);
+            }
+        } catch (err) {
+            setError(err.message);
+        }
+    };
 
     return (
-        <div className={classes.root}>
-            <Grid container spacing={3}>
-                {links.map((link, index) => (
-                    <Grid item xs={12} sm={6} md={6} key={index}>
-                        <div className={classes.paper}>
-                            <Typography variant="h6">
-                                <Link href={link.url} color="inherit" className={classes.link} target="_blank" rel="noopener noreferrer">
-                                    {link.name}
-                                </Link>
-                            </Typography>
-                        </div>
-                    </Grid>
-                ))}
-            </Grid>
-        </div>
+        <APIProvider apiKey="AIzaSyA9CUYQU5m1Gip5ZepcFS0dSTspiQZ6lgg">
+            <SearchAddress onSearch={handleSearch} error={error} />
+            <MapComponent markers={markers} />
+        </APIProvider>
     );
 };
+
+export default AccessibilityMapPage;

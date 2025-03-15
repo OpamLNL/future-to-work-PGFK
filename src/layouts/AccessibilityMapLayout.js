@@ -1,10 +1,9 @@
-import { AccessibilityMapPage }  from "../pages/AccessibilityMapPage";
+import { AccessibilityMapPage } from "../pages/AccessibilityMapPage";
 
-export const CharactersLayout = () => {
+export const AccessibilityMapLayout = () => {
     return (
         <div>
             <AccessibilityMapPage />
         </div>
     );
 };
-
