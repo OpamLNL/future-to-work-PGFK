@@ -1,0 +1,86 @@
+{
+  "title": {
+    "en-US": "Contact Us",
+    "uk-UA": "Зв’яжіться з нами"
+  },
+  "generalName": {
+    "en-US": "FairView — Adaptive Interview Platform",
+    "uk-UA": "FairView — Платформа адаптивних співбесід"
+  },
+  "generalOfficeLabel": {
+    "en-US": "Main Office",
+    "uk-UA": "Головний офіс"
+  },
+  "generalEmailLabel": {
+    "en-US": "General Email",
+    "uk-UA": "Загальна пошта"
+  },
+  "generalPhoneLabel": {
+    "en-US": "Phone",
+    "uk-UA": "Телефон"
+  },
+  "candidateSupportTitle": {
+    "en-US": "Candidate Support",
+    "uk-UA": "Підтримка кандидатів"
+  },
+  "candidateEmailLabel": {
+    "en-US": "Email",
+    "uk-UA": "Пошта"
+  },
+  "candidatePhoneLabel": {
+    "en-US": "Phone",
+    "uk-UA": "Телефон"
+  },
+  "candidateWhatsAppLabel": {
+    "en-US": "WhatsApp",
+    "uk-UA": "WhatsApp"
+  },
+  "candidateHotlineLabel": {
+    "en-US": "For urgent inquiries",
+    "uk-UA": "Для термінових запитів"
+  },
+  "employerPartnershipsTitle": {
+    "en-US": "Employer Partnerships",
+    "uk-UA": "Співпраця з роботодавцями"
+  },
+  "employerEmailLabel": {
+    "en-US": "Email",
+    "uk-UA": "Пошта"
+  },
+  "employerPhoneLabel": {
+    "en-US": "Phone",
+    "uk-UA": "Телефон"
+  },
+  "employerOfficeLabel": {
+    "en-US": "Regional Office",
+    "uk-UA": "Регіональний офіс"
+  },
+  "followUsTitle": {
+    "en-US": "Follow Us",
+    "uk-UA": "Слідкуйте за нами"
+  },
+  "socialFacebookLabel": {
+    "en-US": "Facebook",
+    "uk-UA": "Facebook"
+  },
+  "socialLinkedInLabel": {
+    "en-US": "LinkedIn",
+    "uk-UA": "LinkedIn"
+  },
+  "socialTelegramLabel": {
+    "en-US": "Telegram",
+    "uk-UA": "Telegram"
+  },
+  "socialTwitterLabel": {
+    "en-US": "Twitter",
+    "uk-UA": "Twitter"
+  },
+  "mediaInquiriesLabel": {
+    "en-US": "For media inquiries",
+    "uk-UA": "Для запитів від ЗМІ"
+  },
+  "partnershipProposalsLabel": {
+    "en-US": "Partnership proposals",
+    "uk-UA": "Пропозиції співпраці"
+  }
+}
