@@ -167,7 +167,7 @@ export const App = () => {
                                         
 
                                         <Route path={'how-it-works'} element={<HowItWorksLayout />} />
-                                        <Route path={'candidate-form'} element={<CandidateFormPage />} />
+                                        <Route path={'candidate-form'} element={<CandidateFormLayout />} />
 
 
                                         <Route path={'statistic'} element={<StatisticLayout />} />
