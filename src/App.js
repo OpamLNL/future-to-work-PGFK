@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
         gridTemplateColumns: '15% 1fr 15%',
         gridTemplateAreas: `
             'header header header'
-            'left main right'
+            'left main main'
         `,
         minHeight: '100vh',
         position: 'relative',
@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
         top: 0,
         bottom: 0,
         [theme.breakpoints.down('sm')]: {
-            display: 'none',
+            //display: 'none',
         }
     },
     mainContainerRight: {
@@ -63,8 +63,8 @@ const useStyles = makeStyles(theme => ({
     mainContainerCenter: {
         gridArea: 'main',
         padding: '2px',
-        alignItems: 'flex-start', // Вирівнювання по лівому краю
-        justifyContent: 'flex-start', // Вирівнювання тексту зверху
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
         flexDirection: 'column',
 
         [theme.breakpoints.down('sm')]: {
@@ -173,9 +173,9 @@ export const App = () => {
                                         <Route path={'contacts'} element={<ContactLayout />} />
                                     </Routes>
                                 </div>
-                                <div className={classes.mainContainerRight}>
-                                    <RightSidebar />
-                                </div>
+                                {/*<div className={classes.mainContainerRight}>*/}
+                                {/*    <RightSidebar />*/}
+                                {/*</div>*/}
                             </div>
                         </Router>
                     </ThemeProvider>
