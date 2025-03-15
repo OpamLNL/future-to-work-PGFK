@@ -16,3 +16,4 @@ export * from './SignUpLayout';
 export * from './StatisticLayout';
 export * from './UserProfileLayout';
 
+export * from './CandidateFormLayout';
