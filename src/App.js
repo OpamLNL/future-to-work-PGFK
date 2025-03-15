@@ -8,7 +8,6 @@ import {
     Routes,
 } from "react-router-dom";
 import { Header, LeftSidebar, Overlay } from "./components";
-import { LanguageProvider } from "./language/language-context";
 import {
     AboutUsLayout,
     AccessibilityMapLayout,
@@ -138,6 +137,7 @@ export const App = () => {
                         <Router>
                             <Overlay />
                             <div className={classes.header}>
+                                <MainMenuMini />
                                 <Header />
                             </div>
                             <div className={classes.mainContainer}>

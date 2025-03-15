@@ -5,7 +5,6 @@ import {EpicWorksCard, CharactersCard, FavoriteBadge} from "../components";
 
 const useStyles = makeStyles((theme) => ({
     list: {
-        width: '1200px',
         padding: theme.spacing(4),
         margin: 'auto',
         color: theme.palette.text.primary,

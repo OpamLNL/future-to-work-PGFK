@@ -12,7 +12,7 @@ export const Header = () =>{
 
 return(
     <div className={css.header}>
-        <MainMenuMini/>
+
 
         <div>
             <ServiceBar/>

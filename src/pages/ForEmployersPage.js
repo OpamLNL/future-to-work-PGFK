@@ -1,127 +1,170 @@
-import { useState, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, CircularProgress, Container, Card, CardContent } from '@mui/material';
-import VolumeUpIcon from "@material-ui/icons/VolumeUp";
-
-import { apiBaseURL, urls, charactersURL } from '../configs/urls';
-import { SectionContainer } from "../components/Containers";
-import {EditButton, FavoriteBadge, RoundButton, TagBadge} from "../components";
-
-
-import { parseImages } from "../services/ParseImages";
-import {speakText} from "../services/SpeakText";
-import {parseTags} from "../services/ParseTags";
-
-const IMG_API = apiBaseURL + charactersURL;
+import { Typography, Container } from '@mui/material';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import { RoundButton } from "../components";
+import { speakText } from "../services/SpeakText";
+import { LanguageContext } from "../language/language-context";
+import employersPageLocales from './Locales/employersPageLocales.json';
 
 const useStyles = makeStyles((theme) => ({
-    characterContainer: {
-        maxWidth: '800px',
-        padding: theme.spacing(4),
-        margin: 'auto',
-        borderRadius: theme.shape.borderRadius,
-        boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gridTemplateRows: 'auto',
-        gap: theme.spacing(2),
-        [theme.breakpoints.down('md')]: {
-            gridTemplateColumns: '1fr',
-        },
-    },
-    headerContainer: {
-        gridColumn: '1 / 3',
-        gridRow: '1 / 1',
-        textAlign: 'center',
-        [theme.breakpoints.down('md')]: {
-            gridColumn: '1 / 2',
-            gridRow: '1 / 1',
-        },
-    },
-    image1Container: {
-        width: 300,
-        overflow: "visible",
-        gridColumn: '1 / 1',
-        gridRow: '4 / 4',
-        backgroundColor: theme.palette.primary.containerBackground,
-        backgroundSize: 'auto',
-        [theme.breakpoints.down('md')]: {
-            gridColumn: '1 / 2',
-            gridRow: '3 / 3',
-        },
-    },
-
-    detailsContainer: {
-        gridColumn: '2 / 3',
-        gridRow: '4 / 4',
+    container: {
         display: 'flex',
         flexDirection: 'column',
-        gap: theme.spacing(2),
-        [theme.breakpoints.down('md')]: {
-            gridColumn: '1 / 2',
-            gridRow: '2 / 2',
+        alignItems: 'flex-start',
+        justifyContent: 'start',
+        minHeight: '100vh',
+        padding: theme.spacing(2),
+        [theme.breakpoints.up('sm')]: {
+            padding: theme.spacing(3),
         },
+        [theme.breakpoints.up('md')]: {
+            padding: theme.spacing(4),
+        },
+        overflow: 'hidden',
+        position: 'relative', // Додаємо для позиціонування кнопки
     },
-    tagsContainer: {
-        gridColumn: '1 / 3',
-        gridRow: '3 /4',
+    header: {
         display: 'flex',
-        flexWrap: 'wrap',
-        gap: theme.spacing(1),
-        [theme.breakpoints.down('md')]: {
-            gridColumn: '1 / 2',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%',
+    },
+    title: {
+        fontSize: '3rem',
+        fontFamily: theme.typography.fontFamily,
+        marginBottom: theme.spacing(2),
+        textAlign: 'left',
+        color: theme.palette.primary.contrastText,
+        display: 'block',
+        [theme.breakpoints.up('sm')]: {
+            display: 'block',
+            fontSize: '2rem',
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '2.5rem',
         },
     },
-        media: {
-                width: '100%',
-                borderRadius: theme.shape.borderRadius,
-                objectFit: 'cover',
-                border: '4px solid white',
-                transition: 'transform 0.3s ease-in-out',
-                '&:hover': {
-                    transform: 'scale(1.1)',
-                },
-                [theme.breakpoints.down('sm')]: {
-                    width: '50%',
-                },
+    description: {
+        fontSize: '1.5rem',
+        marginBottom: theme.spacing(4),
+        marginTop: theme.spacing(2),
+        textAlign: 'left',
+        color: theme.palette.primary.dark,
+        display: 'block',
+        [theme.breakpoints.up('sm')]: {
+            display: 'block',
+            fontSize: '1.2rem',
+            marginTop: theme.spacing(4),
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '1.5rem',
+            marginTop: theme.spacing(6),
+        },
     },
-    card: {
-        boxShadow: 'none',
-        background: 'transparent',
-    },
-    typography: {
-        fontWeight: theme.typography.fontWeightBold,
+    button: {
+        marginTop: theme.spacing(2),
+        padding: theme.spacing(1, 4),
+        fontSize: '1rem',
+        [theme.breakpoints.up('sm')]: {
+            fontSize: '1.2rem',
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '1.5rem',
+        },
+        position: 'absolute',
+        top: theme.spacing(2),
+        right: theme.spacing(2),
     },
 }));
 
-
-
-export const ForEmployersPage = ({ characterId }) => {
+export const ForEmployersPage = () => {
     const classes = useStyles();
-
     const [isSpeaking, setIsSpeaking] = useState(false);
+    const language = useContext(LanguageContext);
+    const lang = language.language;
 
+    // Отримуємо локалізований контент
+    const content = {
+        title: employersPageLocales.find(item => item.hasOwnProperty('title'))?.title[lang] || '',
+        intro: employersPageLocales.find(item => item.hasOwnProperty('intro'))?.intro[lang] || '',
+        benefitsTitle: employersPageLocales.find(item => item.hasOwnProperty('benefitsTitle'))?.benefitsTitle[lang] || '',
+        benefitsItems: employersPageLocales.find(item => item.hasOwnProperty('benefitsItems'))?.benefitsItems[lang] || [],
+        inclusiveHiringTitle: employersPageLocales.find(item => item.hasOwnProperty('inclusiveHiringTitle'))?.inclusiveHiringTitle[lang] || '',
+        inclusiveHiringItems: employersPageLocales.find(item => item.hasOwnProperty('inclusiveHiringItems'))?.inclusiveHiringItems[lang] || [],
+        grantsTitle: employersPageLocales.find(item => item.hasOwnProperty('grantsTitle'))?.grantsTitle[lang] || '',
+        grantsDescription: employersPageLocales.find(item => item.hasOwnProperty('grantsDescription'))?.grantsDescription[lang] || '',
+        callToAction: employersPageLocales.find(item => item.hasOwnProperty('callToAction'))?.callToAction[lang] || '',
+        slogan: employersPageLocales.find(item => item.hasOwnProperty('slogan'))?.slogan[lang] || '',
+    };
 
+    // Об'єднання тексту для озвучування
+    const fullText = [
+        content.title,
+        content.intro,
+        content.benefitsTitle,
+        ...content.benefitsItems,
+        content.inclusiveHiringTitle,
+        ...content.inclusiveHiringItems,
+        content.grantsTitle,
+        content.grantsDescription,
+        content.callToAction,
+        content.slogan
+    ].join(' ');
 
-
-    const user = JSON.parse(localStorage.getItem('user'));
-
+    const voiceLang = lang === 'en' ? 'en-US' : 'uk-UA';
 
     return (
-        <div className={classes.characterContainer}>
-            <div className={classes.headerContainer}>
-                <div>
-                    <RoundButton onClick={() => speakText("", 'uk-UA')} disabled={isSpeaking}>
-                        <VolumeUpIcon />
-                    </RoundButton>
-
-
-
-                </div>
+        <Container className={classes.container}>
+            <div className={classes.header}>
+                <Typography variant="h2" className={classes.title}>
+                    {content.title}
+                </Typography>
+                <RoundButton
+                    className={classes.button}
+                    onClick={() => speakText(fullText, voiceLang)}
+                    disabled={isSpeaking}
+                >
+                    <VolumeUpIcon />
+                </RoundButton>
             </div>
-
-
-        </div>
+            <br />
+            <Typography variant="h3" className={classes.description}>
+                {content.intro}
+            </Typography>
+            <br />
+            <Typography variant="h4" className={classes.description}>
+                {content.benefitsTitle}
+            </Typography>
+            {content.benefitsItems.map((item, index) => (
+                <Typography key={index} variant="body1" className={classes.description}>
+                    • {item}
+                </Typography>
+            ))}
+            <br />
+            <Typography variant="h4" className={classes.description}>
+                {content.inclusiveHiringTitle}
+            </Typography>
+            {content.inclusiveHiringItems.map((item, index) => (
+                <Typography key={index} variant="body1" className={classes.description}>
+                    • {item}
+                </Typography>
+            ))}
+            <br />
+            <Typography variant="h4" className={classes.description}>
+                {content.grantsTitle}
+            </Typography>
+            <Typography variant="body1" className={classes.description}>
+                {content.grantsDescription}
+            </Typography>
+            <br />
+            <Typography variant="body1" className={classes.description}>
+                {content.callToAction}
+            </Typography>
+            <br />
+            <Typography variant="h5" className={classes.title}>
+                "{content.slogan}"
+            </Typography>
+        </Container>
     );
 };
-
