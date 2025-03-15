@@ -30,37 +30,12 @@ const useStyles = makeStyles((theme) => ({
 
 export const HowItWorksPage = () => {
     const classes = useStyles();
-    const dispatch = useDispatch();
 
-    const epicWorks = useSelector(selectEpicWorks);
-    const loading = useSelector(selectEpicWorksLoading);
-    const error = useSelector(selectEpicWorksError);
 
-    useEffect(() => {
-        dispatch(fetchEpicWorks());
-    }, [dispatch]);
-
-    useEffect(() => {
-        dispatch(fetchEpicWorks());
-    }, [dispatch]);
-
-    if (loading) {
-        return (
-            <Container className={classes.pageContainer}>
-                <CircularProgress color="secondary" />
-            </Container>
-        );
-    }
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
 
     return (
         <div className={classes.pageContainer}>
-            {epicWorks.length > 0 ? epicWorks.map(epicWork => (
-                <EpicWorksCard key={epicWork.id} epicWorkId={epicWork.id} />
-            )) : (
-                <Typography variant="h6">No characters found</Typography>
-            )}
+
 
         </div>
     );

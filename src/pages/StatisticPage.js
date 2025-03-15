@@ -127,22 +127,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-// const fetchEpicWorkById = async (epicWorkId) => {
-//     try {
-//         const response = await fetch(`${apiBaseURL}${urls.epicWorks.getById.replace(':id', epicWorkId)}`);
-//         if (!response.ok) {
-//             throw new Error(`Error fetching work data: ${response.statusText}`);
-//         }
-//         return await response.json();
-//     } catch (error) {
-//         console.error('Error fetching epic work data:', error);
-//         throw error;
-//     }
-// };
+
 
 
 export const StatisticPage = ({ epicWorkId }) => {
     const classes = useStyles();
+
     const [workData, setWorkData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isSpeaking, setIsSpeaking] = useState(false);
