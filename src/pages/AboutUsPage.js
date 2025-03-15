@@ -22,28 +22,12 @@ const useStyles = makeStyles((theme) => ({
 
 export const AboutUsPage = () => {
     const classes = useStyles();
-    const [favorites, setFavorites] = useState({ characters: [], works: [] });
 
-    useEffect(() => {
-        const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || { characters: [], works: [] };
-        setFavorites(storedFavorites);
-    }, []);
 
     return (
         <div>
             <div className={classes.list}>
-                {Object.entries(favorites).map(([type, ids]) => (
-                    ids.map(id => (
 
-
-                        <div key={`${type}-${id}`}>
-                            <FavoriteBadge />
-
-                            {type.toLowerCase() === 'character' ? <CharactersCard characterId={id} /> : <EpicWorksCard epicWorkId={id} />}
-
-                        </div>
-                    ))
-                ))}
             </div>
         </div>
     );
