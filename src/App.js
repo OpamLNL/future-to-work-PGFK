@@ -7,6 +7,7 @@ import {Header, LeftSidebar, MainMenuMini, Overlay, RightSidebar} from './compon
 import {
     AdminLayout,
     AboutUsLayout,
+    AccessibilityMapLayout,
     CandidateFormLayout,
     ContactLayout,
     CandidatesFormLayout,
@@ -164,7 +165,7 @@ export const App = () => {
                                         <Route path={'for-employers'} element={<ForEmployersLayout />} />
                                         <Route path={'for-candidates'} element={<ForCandidatesLayout />} />
                                         <Route path={'about-us'} element={<AboutUsLayout />} />
-                                        
+                                        <Route path={'accessibility-map'} element={<AccessibilityMapLayout />} />
 
                                         <Route path={'how-it-works'} element={<HowItWorksLayout />} />
                                         <Route path={'candidate-form'} element={<CandidateFormLayout />} />
