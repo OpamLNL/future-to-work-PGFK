@@ -62,7 +62,11 @@ const useStyles = makeStyles(theme => ({
     },
     mainContainerCenter: {
         gridArea: 'main',
-        padding: '16px',
+        padding: '2px',
+        alignItems: 'flex-start', // Вирівнювання по лівому краю
+        justifyContent: 'flex-start', // Вирівнювання тексту зверху
+        flexDirection: 'column',
+
         [theme.breakpoints.down('sm')]: {
             marginLeft: 0,
             marginRight: 0,
@@ -130,7 +134,6 @@ export const App = () => {
 
 
 
-    // localStorage.removeItem('favorites');
     return (
         <Provider store={store}>
             <LanguageProvider>

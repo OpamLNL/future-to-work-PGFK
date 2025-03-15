@@ -17,16 +17,25 @@ const MainMenu = () => {
         <div>
             <div className={css.mainMenuContainer}>
                 {menuItemsLinks.map(menuItem => (
-                    <Link key={menuItem.id} to={menuItem.link}>
-                        <Button style={{ marginRight: '20px' }}>
-                            <Icon name="inbox" />
-                            
+                    <Link key={menuItem.id} to={menuItem.link} style={{ textDecoration: 'none', width: '100%' }}>
+                        <Button
+                            style={{
+                                width: '200px',
+                                height: '80px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                marginBottom: '2px'
+                            }}
+                        >
+                            <Icon name="inbox"/>
                             <span>{menuItemsLocales.find(item => item.id === menuItem.id)?.label[language.language]}</span>
                         </Button>
                     </Link>
                 ))}
             </div>
         </div>
+
     );
 }
 

@@ -22,7 +22,7 @@ const RightSidebar = () => {
 
     return (
         <div className={classes.sideMenu}>
-            <SidebarMenu />
+
         </div>
     );
 };

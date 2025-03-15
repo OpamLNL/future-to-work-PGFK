@@ -1,15 +1,62 @@
 [
   {
     "welcome": {
-      "en-US": "Enter the Realm of Norse Legends",
-      "uk-UA": "Запрошуємо у світ легенд Скандинавії"
+      "en-US": "FairView – Barrier-Free Interviews",
+      "uk-UA": "FairView – Співбесіди без бар’єрів"
     }
   },
 
   {
     "subtitle": {
-      "en-US": "Embark on a Mythical Journey Through Norse Tales!",
-      "uk-UA": "Вирушайте у міфічну подорож скандинавськими легендами!"
+      "en-US": "Equal opportunities for every candidate. Technology for inclusive hiring.",
+      "uk-UA": "Рівні можливості для кожного кандидата. Технології для інклюзивного найму."
+    }
+  },
+
+  {
+    "text1": {
+      "en-US": " Why FairView?",
+      "uk-UA": " Чому FairView?"
+    }
+  },
+  {
+    "text2": {
+      "en-US": "⬤ Interviews tailored to your needs",
+      "uk-UA": "⬤ Співбесіди, адаптовані під ваші потреби"
+    }
+  },
+  {
+    "text3": {
+      "en-US": "⬤ No bias or discrimination",
+      "uk-UA": "⬤ Відсутність упереджень і дискримінації"
+    }
+  },
+  {
+    "text4": {
+      "en-US": "⬤ Flexible formats: video, text, phone, or written test",
+      "uk-UA": "⬤ Гнучкий формат: відео, текст, телефон або письмовий тест"
+    }
+  },
+  {
+    "text5": {
+      "en-US": "⬤ Accessibility for everyone – sign language support, subtitles, and timing flexibility",
+      "uk-UA": "⬤ Доступність для всіх – підтримка жестової мови, субтитрів, таймінгу"
+    }
+  },
+
+
+
+
+
+  {
+    "subtitle2": {
+      "en-US": "FairView helps companies create an inclusive work environment while allowing candidates to interview comfortably and stress-free.",
+      "uk-UA": "FairView допомагає компаніям створювати інклюзивне робоче середовище, а кандидатам – проходити співбесіди комфортно та без стресу."
     }
   }
 ]
+
+
+
+
+

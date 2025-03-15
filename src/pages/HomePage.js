@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
-        justifyContent: 'center',
+        justifyContent: 'start',
         minHeight: '100vh',
         padding: theme.spacing(2),
         [theme.breakpoints.up('sm')]: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'hidden',
     },
     title: {
-        fontSize: '1.5rem',
+        fontSize: '3rem',
         fontFamily: theme.typography.fontFamily,
         marginBottom: theme.spacing(2),
         textAlign: 'left',
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     description: {
-        fontSize: '1rem',
+        fontSize: '1.5rem',
         marginBottom: theme.spacing(4),
         marginTop: theme.spacing(2),
         textAlign: 'left',
@@ -77,10 +77,36 @@ export const HomePage = () => {
             <Typography variant="h2" className={classes.title}>
                 {`${homePageLocales.find(item => item.hasOwnProperty('welcome'))?.welcome[language.language] || ''}`}
             </Typography>
-
-            <Typography variant="body1" className={classes.description}>
+            <br/>
+            <Typography variant="h3" className={classes.description}>
                 {`${homePageLocales.find(item => item.hasOwnProperty('subtitle'))?.subtitle[language.language] || ''}`}
             </Typography>
+            <br/>
+            <Typography variant="h4" className={classes.description}>
+                {`${homePageLocales.find(item => item.hasOwnProperty('text1'))?.text1[language.language] || ''}`}
+            </Typography>
+            <br/>
+            <Typography variant="body1" className={classes.description}>
+                {`${homePageLocales.find(item => item.hasOwnProperty('text2'))?.text2[language.language] || ''}`}
+            </Typography>
+            <br/>
+            <Typography variant="body1" className={classes.description}>
+                {`${homePageLocales.find(item => item.hasOwnProperty('text3'))?.text3[language.language] || ''}`}
+            </Typography>
+            <br/>
+            <Typography variant="body1" className={classes.description}>
+                {`${homePageLocales.find(item => item.hasOwnProperty('text4'))?.text4[language.language] || ''}`}
+            </Typography>
+            <br/>
+            <Typography variant="body1" className={classes.description}>
+                {`${homePageLocales.find(item => item.hasOwnProperty('text5'))?.text5[language.language] || ''}`}
+            </Typography>
+
+            <br/>
+            <Typography variant="h5" className={classes.title}>
+                {`${homePageLocales.find(item => item.hasOwnProperty('subtitle2'))?.subtitle2[language.language] || ''}`}
+            </Typography>
+
         </Container>
     );
 };
