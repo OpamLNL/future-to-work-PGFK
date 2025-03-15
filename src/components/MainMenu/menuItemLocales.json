@@ -2,33 +2,51 @@
     {
         "id": "1",
         "label": {
-            "en-US" : "Favorite",
-            "uk-UA" : "Обране"
+            "en-US" : "Home",
+            "uk-UA" : "Головна"
         }
     },
     {
         "id": "2",
         "label": {
-            "en-US" : "Epic",
-            "uk-UA" : "Епос"
+            "en-US" : "How It Works?",
+            "uk-UA" : "Як це працює?"
         }
     },
     {
         "id": "3",
         "label": {
-            "en-US" : "Characters",
-            "uk-UA" : "Персонажі"
+            "en-US" : "For Candidates",
+            "uk-UA" : "Для кандидатів"
         }
     },
     {
         "id": "4",
         "label": {
-            "en-US" : "Links",
-            "uk-UA" : "Посилання"
+            "en-US" : "For Employers",
+            "uk-UA" : "Для роботодавців"
         }
     },
+
+
     {
         "id": "5",
+        "label": {
+            "en-US" : "Accessibility Map",
+            "uk-UA" : "Карта доступності"
+        }
+    },
+
+    {
+        "id": "6",
+        "label": {
+            "en-US" : "About Us",
+            "uk-UA" : "Про нас"
+        }
+    },
+
+    {
+        "id": "7",
         "label": {
             "en-US" : "Contact",
             "uk-UA" : "Наші контакти"

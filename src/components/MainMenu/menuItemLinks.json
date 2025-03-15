@@ -1,22 +1,30 @@
 [
     {
         "id": "1",
-        "link": "/favorites"
+        "link": "/home"
     },
     {
         "id": "2",
-        "link": "/epicWorks"
+        "link": "/how-it-works"
     },
     {
         "id": "3",
-        "link": "/characters"
+        "link": "/for-candidates"
     },
     {
         "id": "4",
-        "link": "/links"
+        "link": "/for-employers"
     },
     {
         "id": "5",
+        "link": "/accessibility-map"
+    },
+    {
+        "id": "6",
+        "link": "/about-us"
+    },
+    {
+        "id": "7",
         "link": "/contacts"
     }
 ]

@@ -20,7 +20,7 @@ const MainMenu = () => {
                     <Link key={menuItem.id} to={menuItem.link}>
                         <Button style={{ marginRight: '20px' }}>
                             <Icon name="inbox" />
-                            ***
+                            
                             <span>{menuItemsLocales.find(item => item.id === menuItem.id)?.label[language.language]}</span>
                         </Button>
                     </Link>

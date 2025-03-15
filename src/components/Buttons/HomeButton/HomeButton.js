@@ -2,7 +2,7 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import homeIcon from '../../../assets/transparent_home.png';
+import homeIcon from '../../../assets/fairview-logo.png';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme) => ({
         alignContent: 'center',
         border: '2px',
         borderRadius: '50%',
-        margin: '5px 15px 5px 5px',
+        margin: '5px 5px 5px 5px',
         cursor: 'pointer',
-        color: theme.palette.primary.contrastText,
-        background: theme.palette.primary.dark,
+       // color: theme.palette.primary.contrastText,
+       // background: theme.palette.primary.dark,
         '&:hover': {
-            background: theme.palette.primary.light,
+            // background: theme.palette.primary.light,
         },
     },
         img: {

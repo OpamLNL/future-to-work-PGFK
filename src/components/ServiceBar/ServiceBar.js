@@ -44,8 +44,7 @@ export const ServiceBar = () => {
                 </div>
             </div>
             <div>
-                ppp
-                {/*<UserInfo />*/}
+                <UserInfo />
             </div>
 
         </SectionContainer>

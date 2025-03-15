@@ -6,14 +6,13 @@ import { store } from './store/store';
 import { Header, LeftSidebar, Overlay, RightSidebar } from './components';
 import {
     AdminLayout,
-    CharacterLayout,
-    CharactersLayout,
+    AboutUsLayout,
     ContactLayout,
     EditProfileLayout,
-    EpicWorkLayout,
-    EpicWorksLayout,
-    FavoriteLayout,
-    LinksLayout,
+    ForCandidatesLayout,
+    ForEmployersLayout,
+    HowItWorksLayout,
+    StatisticLayout,
     MainLayout,
     ProfileLayout,
     SearchResultLayout,
@@ -156,20 +155,18 @@ export const App = () => {
                                         <Route path={'admin-page'} element={<AdminLayout />} />
                                         <Route path={'edit-profile'} element={<EditProfileLayout />} />
                                         <Route path={'profile/:username'} element={<ProfileLayout />} />
-                                        <Route path={'epicWork/:epicWorkId'} element={<EpicWorkLayout />} />
-                                        <Route path={'epicWorks'} element={<EpicWorksLayout />} />
-                                        <Route path={'character/:characterId'} element={<CharacterLayout />} />
+                                        <Route path={'for-employers'} element={<ForEmployersLayout />} />
+                                        <Route path={'for-candidates'} element={<ForCandidatesLayout />} />
+                                        <Route path={'about-us'} element={<AboutUsLayout />} />
                                         
 
-
-                                        <Route path={'characters'} element={<CharactersLayout />} />
-
+                                        <Route path={'how-it-works'} element={<HowItWorksLayout />} />
 
 
-                                        <Route path={'favorites'} element={<FavoriteLayout />} />
+
+                                        <Route path={'statistic'} element={<StatisticLayout />} />
                                         <Route path={'search-result/:searchKey'} element={<SearchResultLayout />} />
                                         <Route path={'user-profile/:username'} element={<UserProfileLayout />} />
-                                        <Route path={'links'} element={<LinksLayout />} />
                                         <Route path={'contacts'} element={<ContactLayout />} />
                                     </Routes>
                                 </div>
