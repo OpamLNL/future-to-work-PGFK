@@ -29,39 +29,13 @@ const useStyles = makeStyles((theme) => ({
 
 export const ForCandidatesPage = () => {
     const classes = useStyles();
-    const dispatch = useDispatch();
-
-    const characters = useSelector(selectCharacters);
-    const loading = useSelector(selectCharactersLoading);
-    const error = useSelector(selectCharactersError);
-
-    useEffect(() => {
-        dispatch(fetchCharacters());
-    }, [dispatch]);
 
 
 
-    useEffect(() => {
-        dispatch(fetchCharacters());
-    }, [dispatch]);
-
-    if (loading) {
-        return (
-            <Container className={classes.pageContainer}>
-                <CircularProgress color="secondary" />
-            </Container>
-        );
-    }
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
 
     return (
         <div className={classes.pageContainer}>
-            {characters.length > 0 ? characters.map(character => (
-                <CharactersCard key={character.id} character={character} />
-            )) : (
-                <Typography variant="h6">No characters found</Typography>
-            )}
+
 
         </div>
     );
