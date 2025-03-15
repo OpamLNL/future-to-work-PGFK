@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "link": "/home"
+    },
+    {
+        "id": "2",
+        "link": "/how-it-works"
+    },
+    {
+        "id": "3",
+        "link": "/for-candidates"
+    },
+    {
+        "id": "4",
+        "link": "/for-employers"
+    },
+    {
+        "id": "5",
+        "link": "/accessibility-map"
+    },
+    {
+        "id": "6",
+        "link": "/about-us"
+    },
+    {
+        "id": "7",
+        "link": "/contacts"
+    }
+]
