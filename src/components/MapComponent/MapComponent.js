@@ -45,7 +45,6 @@ const MapComponent = ({ markers, apiKey }) => {
             defaultZoom={3}
             gestureHandling="greedy"
             disableDefaultUI={true}
-            language="uk"
         >
             {[...companiesMarkers, ...markers].map((marker, index) => (
                 <Marker key={index} position={marker.position}>

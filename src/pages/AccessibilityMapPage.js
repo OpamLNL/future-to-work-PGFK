@@ -30,7 +30,7 @@ export const AccessibilityMapPage = () => {
 
     return (
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <APIProvider apiKey={apiKey}>
+            <APIProvider apiKey={apiKey} language="uk">
                 <SearchAddress onSearch={handleSearch} error={error} />
                 <MapComponent markers={markers} apiKey={apiKey} />
             </APIProvider>
