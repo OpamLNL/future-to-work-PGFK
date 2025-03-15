@@ -1,39 +1,74 @@
+import { makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
+
+const useStyles = makeStyles((theme) => ({
+    container: {
+        padding: "25px 20px",
+        maxWidth: "1000px",
+        borderRadius: "10px",
+        alignItems: "center",
+        display: "flex",
+        backgroundColor: theme.palette.primary.containerBackground,
+    },
+    input: {
+        border: "none",
+        borderRadius: "5px",
+        backgroundColor: theme.palette.primary.light,
+        padding: "10px",
+        marginRight: "5px",
+        fontSize: "24px",
+        color: theme.palette.primary.contrastText,
+    },
+    button: {
+        border: "none",
+        borderRadius: "5px",
+        fontSize: "24px",
+        padding: "7px 10px 7px 10px",
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.light,
+        transition: "background-color 0.3s, box-shadow 0.3s, transform 0.3s",
+        "&:hover": {
+            backgroundColor: theme.palette.primary.dark,
+            boxShadow: "0px 6px 20px rgba(0, 0, 0, 0.3)",
+            transform: "translateY(-2px)",
+        },
+        "&[disabled]": {
+            backgroundColor: "#CCCCCC",
+            color: "#666666",
+            cursor: "not-allowed",
+            boxShadow: "none",
+        },
+        "&.active": {
+            backgroundColor: "#FF4081",
+            boxShadow: "0px 4px 10px rgba(255, 64, 129, 0.5)",
+        },
+    },
+}));
 
 const SearchAddress = ({ onSearch, error }) => {
     const [address, setAddress] = useState("");
+    const classes = useStyles();
 
     const handleSearch = () => {
         onSearch(address);
     };
 
     return (
-        <div
-            style={{
-                padding: "10px",
-                backgroundColor: "#fff",
-                position: "absolute",
-                top: 10,
-                left: 10,
-                zIndex: 1000,
-            }}
-        >
+        <span className={classes.container}>
             <input
                 type="text"
                 placeholder="Введіть адресу..."
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                style={{
-                    padding: "5px",
-                    width: "200px",
-                    marginRight: "5px",
-                }}
+                className={classes.input}
             />
-            <button onClick={handleSearch}>🔍 Пошук</button>
+            <button onClick={handleSearch} className={classes.button}>
+                🔍 Пошук
+            </button>
             {error && (
                 <p style={{ color: "red", margin: "5px 0 0" }}>{error}</p>
             )}
-        </div>
+        </span>
     );
 };
 

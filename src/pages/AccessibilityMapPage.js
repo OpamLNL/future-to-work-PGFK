@@ -8,13 +8,14 @@ export const AccessibilityMapPage = () => {
     const [markers, setMarkers] = useState([]);
     const [error, setError] = useState(null);
 
+    const apiKey = "AIzaSyA9CUYQU5m1Gip5ZepcFS0dSTspiQZ6lgg";
+
     const handleSearch = async (address) => {
-        const apiKey = "AIzaSyA9CUYQU5m1Gip5ZepcFS0dSTspiQZ6lgg";
         try {
             const location = await getCoordinates(address, apiKey);
             if (location) {
-                setMarkers([
-                    ...markers,
+                setMarkers((prevMarkers) => [
+                    ...prevMarkers,
                     {
                         position: location,
                         title: address,
@@ -28,10 +29,12 @@ export const AccessibilityMapPage = () => {
     };
 
     return (
-        <APIProvider apiKey="AIzaSyA9CUYQU5m1Gip5ZepcFS0dSTspiQZ6lgg">
-            <SearchAddress onSearch={handleSearch} error={error} />
-            <MapComponent markers={markers} />
-        </APIProvider>
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            <APIProvider apiKey={apiKey}>
+                <SearchAddress onSearch={handleSearch} error={error} />
+                <MapComponent markers={markers} apiKey={apiKey} />
+            </APIProvider>
+        </div>
     );
 };
 

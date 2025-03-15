@@ -1,21 +1,25 @@
+import { axiosInstance } from "../api/axiosConfig";
+
 export const fetchCompaniesLocation = async () => {
-    const url = "https://api.jsonbin.io/b/60e2b2d1a917050";
+    const url = "https://abbd-188-163-68-67.ngrok-free.app/api/companies/";
+
     try {
-        const response = await fetch(url);
+        const response = await axiosInstance.get(url, {
+            headers: {
+                Accept: "application/json",
+                "ngrok-skip-browser-warning": "true",
+            },
+        });
 
-        if (!response.ok) {
-            throw new Error("Помилка при отриманні даних з бекенду");
-        }
+        console.log("Server response:", response.data);
 
-        const result = await response.json();
-
-        if (result?.data) {
-            return result.data;
+        if (response.data?.data) {
+            return response.data.data;
         } else {
             throw new Error("Невірна структура відповіді від бекенду");
         }
     } catch (error) {
-        console.error(error.message);
+        console.error("Помилка при отриманні даних:", error.message);
         throw error;
     }
 };

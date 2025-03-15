@@ -1,28 +1,42 @@
 import { InfoWindow, Map, Marker } from "@vis.gl/react-google-maps";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { getCoordinates } from "../../services/geocodeService";
+import { fetchCompaniesLocation } from "../../services/mapService";
 
-const MapComponent = ({ data, apiKey, language = "uk" }) => {
-    const [markers, setMarkers] = useState([]);
+const MapComponent = ({ markers, apiKey }) => {
+    const [companiesMarkers, setCompaniesMarkers] = useState([]);
+    const isFetched = useRef(false);
 
-    // useEffect(() => {
-    //     const fetchCoordinates = async () => {
-    //         const markersData = await Promise.all(
-    //             data.map(async (item) => {
-    //                 const coordinates = await fetchCompaniesLocation(
-    //                     item.address,
-    //                     apiKey
-    //                 );
-    //                 return {
-    //                     ...item,
-    //                     coordinates,
-    //                 };
-    //             })
-    //         );
-    //         setMarkers(markersData);
-    //     };
+    useEffect(() => {
+        if (isFetched.current) return;
+        isFetched.current = true;
 
-    //     fetchCoordinates();
-    // }, [data, apiKey]);
+        const fetchCompanies = async () => {
+            try {
+                const companies = await fetchCompaniesLocation();
+                if (Array.isArray(companies)) {
+                    const markersData = await Promise.all(
+                        companies.map(async (company) => {
+                            const location = await getCoordinates(
+                                company.address,
+                                apiKey
+                            );
+                            return {
+                                position: location,
+                                title: company.name,
+                                address: company.address,
+                            };
+                        })
+                    );
+                    setCompaniesMarkers(markersData);
+                }
+            } catch (error) {
+                console.error("Помилка при отриманні компаній:", error);
+            }
+        };
+
+        fetchCompanies();
+    }, []);
 
     return (
         <Map
@@ -31,13 +45,13 @@ const MapComponent = ({ data, apiKey, language = "uk" }) => {
             defaultZoom={3}
             gestureHandling="greedy"
             disableDefaultUI={true}
-            language={language}
+            language="uk"
         >
-            {markers.map((marker, index) => (
-                <Marker key={index} position={marker.coordinates}>
-                    <InfoWindow position={marker.coordinates}>
+            {[...companiesMarkers, ...markers].map((marker, index) => (
+                <Marker key={index} position={marker.position}>
+                    <InfoWindow position={marker.position}>
                         <div>
-                            <h3>{marker.name}</h3>
+                            <h3>{marker.title}</h3>
                             <p>{marker.address}</p>
                         </div>
                     </InfoWindow>
