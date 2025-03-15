@@ -152,72 +152,20 @@ export const App = () => {
                                 </div>
                                 <div className={classes.mainContainerCenter}>
                                     <Routes>
-                                        <Route
-                                            index
-                                            element={<Navigate to={"home"} />}
-                                        />
-                                        <Route
-                                            path={"home"}
-                                            element={<MainLayout />}
-                                        />
-                                        <Route
-                                            path={"sign-up"}
-                                            element={<SignUpLayout />}
-                                        />
-                                        <Route
-                                            path={"sign-in"}
-                                            element={<SignInLayout />}
-                                        />
-                                        <Route
-                                            path={"admin-page"}
-                                            element={<AdminLayout />}
-                                        />
-                                        <Route
-                                            path={"edit-profile"}
-                                            element={<EditProfileLayout />}
-                                        />
-                                        <Route
-                                            path={"profile/:username"}
-                                            element={<ProfileLayout />}
-                                        />
-                                        <Route
-                                            path={"for-employers"}
-                                            element={<ForEmployersLayout />}
-                                        />
-                                        <Route
-                                            path={"for-candidates"}
-                                            element={<ForCandidatesLayout />}
-                                        />
-                                        <Route
-                                            path={"accessibility-map"}
-                                            element={<AccessibilityMapLayout />}
-                                        />
-                                        <Route
-                                            path={"about-us"}
-                                            element={<AboutUsLayout />}
-                                        />
+                                        <Route index element={<Navigate to={'home'}/>} />
+                                        <Route path={'home'} element={<MainLayout />} />
+                                        <Route path={'sign-up'} element={<SignUpLayout />} />
+                                        <Route path={'sign-in'} element={<SignInLayout />} />
+                                        <Route path={'admin-page'} element={<AdminLayout />} />
+                                        <Route path={'edit-profile'} element={<EditProfileLayout />} />
+                                        <Route path={'profile/:username'} element={<ProfileLayout />} />
+                                        <Route path={'for-employers'} element={<ForEmployersLayout />} />
+                                        <Route path={'for-candidates'} element={<ForCandidatesLayout />} />
+                                        <Route path={'about-us'} element={<AboutUsLayout />} />
+                                        
 
-                                        <Route
-                                            path={"how-it-works"}
-                                            element={<HowItWorksLayout />}
-                                        />
-
-                                        <Route
-                                            path={"statistic"}
-                                            element={<StatisticLayout />}
-                                        />
-                                        <Route
-                                            path={"search-result/:searchKey"}
-                                            element={<SearchResultLayout />}
-                                        />
-                                        <Route
-                                            path={"user-profile/:username"}
-                                            element={<UserProfileLayout />}
-                                        />
-                                        <Route
-                                            path={"contacts"}
-                                            element={<ContactLayout />}
-                                        />
+                                        <Route path={'how-it-works'} element={<HowItWorksLayout />} />
+                                        <Route path={'candidate-form'} element={<CandidateFormPage />} />
 
 
                                         <Route path={'statistic'} element={<StatisticLayout />} />
