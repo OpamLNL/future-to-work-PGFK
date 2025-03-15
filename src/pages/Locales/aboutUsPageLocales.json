@@ -1,0 +1,118 @@
+{
+  "welcomeTitle": {
+    "en-US": "About Us — FairView",
+    "uk-UA": "Про нас — FairView"
+  },
+  "welcomeText": {
+    "en-US": "Welcome to FairView — a platform for adaptive interviews that changes the rules of the employment game. We believe that every person deserves a chance to realize their potential, regardless of life circumstances. Our mission is to make the employment process fair, accessible, and comfortable for Ukraine’s war heroes, people with special needs, and everyone striving to find decent work.",
+    "uk-UA": "Ласкаво просимо до FairView — платформи адаптивних співбесід, яка змінює правила гри у світі працевлаштування. Ми віримо, що кожна людина заслуговує на шанс реалізувати свій потенціал, незалежно від життєвих обставин. Наша місія — зробити процес працевлаштування справедливим, доступним і комфортним для героїв війни в Україні, людей з особливими потребами та всіх, хто прагне знайти гідну роботу."
+  },
+  "whyHereTitle": {
+    "en-US": "Why Are We Here?",
+    "uk-UA": "Чому ми тут?"
+  },
+  "whyHereText": {
+    "en-US": "The war in Ukraine has left a mark on the lives of many heroes who defended our freedom. People with special needs overcome barriers every day to prove their worth. But traditional interviews often become yet another challenge — due to mental, psychological, or physical obstacles. We created FairView to change this. Our platform adapts interviews to your needs, removes barriers, and helps you showcase your best self.",
+    "uk-UA": "Війна в Україні залишила слід у житті багатьох героїв, які захищали нашу свободу. Люди з особливими потребами щодня долають бар’єри, щоб довести свою цінність. Але традиційні співбесіди часто стають ще одним випробуванням — через ментальні, психологічні чи фізичні перешкоди. Ми створили FairView, щоб змінити це. Наша платформа адаптує співбесіди до ваших потреб, усуває бар’єри та допомагає вам показати себе з найкращого боку."
+  },
+  "whatWeDoTitle": {
+    "en-US": "What We Do?",
+    "uk-UA": "Що ми робимо?"
+  },
+  "whatWeDoSupport": {
+    "en-US": "Support heroes and those in need: We offer flexible interview formats — text, voice, video, or even sign language — so everyone can participate comfortably and confidently. We also provide training and psychological support to reduce stress and boost self-confidence.",
+    "uk-UA": "Підтримуємо героїв і тих, хто потребує допомоги: Ми пропонуємо гнучкі формати співбесід — текст, голос, відео чи навіть жестову мову — щоб кожен міг пройти їх комфортно й упевнено. Ми також надаємо підготовку та психологічну підтримку, щоб знизити стрес і зміцнити віру в себе."
+  },
+  "whatWeDoBarriers": {
+    "en-US": "Overcome barriers: FairView eliminates bias by anonymizing candidates in the early stages and focusing on your skills, not external circumstances.",
+    "uk-UA": "Долаємо бар’єри: FairView усуває упередження, анонімізуючи кандидатів на перших етапах і фокусуючись на ваших навичках, а не на зовнішніх обставинах."
+  },
+  "whatWeDoTalent": {
+    "en-US": "Unlock talent for companies: We help employers find qualified professionals they might miss through traditional approaches. With FairView, companies gain access to a diverse talent pool — from veterans to people with unique experiences.",
+    "uk-UA": "Відкриваємо таланти для компаній: Ми допомагаємо роботодавцям знаходити кваліфікованих спеціалістів, яких вони могли б пропустити через традиційні підходи. Завдяки FairView компанії отримують доступ до різноманітного пулу талантів — від ветеранів до людей з унікальним досвідом."
+  },
+  "whyFairViewTitle": {
+    "en-US": "Why FairView?",
+    "uk-UA": "Чому FairView?"
+  },
+  "whyFairViewText": {
+    "en-US": "We believe that true talent doesn’t depend on physical abilities, social status, or past experience. Our platform uses cutting-edge technology to make interviews accessible, fair, and effective:",
+    "uk-UA": "Ми віримо, що справжній талант не залежить від фізичних можливостей, соціального статусу чи минулого досвіду. Наша платформа використовує передові технології, щоб зробити співбесіди доступними, справедливими та ефективними:"
+  },
+  "whyFairViewAdaptability": {
+    "en-US": "Adaptability: Choose the format that suits you — text, voice, video, or even a simplified mode.",
+    "uk-UA": "Адаптивність: Обирайте формат, який вам зручний — текст, голос, відео чи навіть спрощений режим."
+  },
+  "whyFairViewSupport": {
+    "en-US": "Support: Practice with an AI assistant, get feedback, and prepare for success.",
+    "uk-UA": "Підтримка: Практикуйте з ШІ-помічником, отримуйте зворотний зв’язок і готуйтеся до успіху."
+  },
+  "whyFairViewInclusivity": {
+    "en-US": "Inclusivity: We break stereotypes, uniting people and companies for a shared goal — creating a workplace where everyone is valued.",
+    "uk-UA": "Інклюзивність: Ми руйнуємо стереотипи, об’єднуючи людей і компанії заради спільної мети — створення робочого середовища, де цінують кожного."
+  },
+  "whoWeWorkForTitle": {
+    "en-US": "Who We Work For?",
+    "uk-UA": "Для кого ми працюємо?"
+  },
+  "candidatesTitle": {
+    "en-US": "For Candidates — Those Seeking Opportunities",
+    "uk-UA": "Для кандидатів — тих, хто шукає можливості"
+  },
+  "candidatesText": {
+    "en-US": "We work for people who want to prove their worth but often face obstacles in traditional hiring processes. Our platform is your ally if you are:",
+    "uk-UA": "Ми працюємо для людей, які прагнуть довести свою цінність, але часто стикаються з перешкодами у традиційних процесах найму. Наша платформа — це ваш союзник, якщо ви:"
+  },
+  "candidatesHeroes": {
+    "en-US": "Ukraine’s war heroes: You’ve given so much for others, and we want to help you return to civilian life with decent work. Whether you have injuries or need adjustments due to combat experience, we offer a comfortable interview format — from voice input to simplified tasks — so you can focus on your strengths.",
+    "uk-UA": "Герої війни в Україні: Ви віддали багато заради інших, і ми хочемо допомогти вам повернутися до цивільного життя з гідною роботою. Незалежно від того, чи маєте ви травми, чи потребуєте адаптації через бойовий досвід, ми пропонуємо комфортний формат співбесіди — від голосового вводу до спрощених завдань — щоб ви могли зосередитися на своїх сильних сторонах."
+  },
+  "candidatesSpecialNeeds": {
+    "en-US": "People with special needs: Whether it’s visual or hearing impairments, limited mobility, or cognitive differences — we tailor the process to you. Answer via text, voice, video, or even sign language, so your abilities shine, not stay hidden behind barriers.",
+    "uk-UA": "Люди з особливыми потребами: Чи то вади зору, слуху, обмежена рухливість чи когнітивні особливості — ми адаптуємо процес під вас. Ви можете відповідати текстом, голосом, через відео чи навіть жестову мову, щоб ваші здібності засяяли, а не залишилися в тіні бар’єрів."
+  },
+  "candidatesPressure": {
+    "en-US": "Those feeling psychological pressure: If interviews trigger anxiety or insecurity, we help you overcome these barriers. Practice with our AI assistant, choose an anonymous format, or take the interview asynchronously at your convenience — we’re here to make you feel calm and confident.",
+    "uk-UA": "Ті, хто відчуває психологічний тиск: Якщо співбесіди викликають у вас тривогу чи невпевненість, ми допомагаємо подолати ці бар’єри. Практикуйте з нашим ШІ-помічником, обирайте анонімний формат або проходьте співбесіду асинхронно у зручний для вас час — ми тут, щоб ви почувалися спокійно і впевнено."
+  },
+  "employersTitle": {
+    "en-US": "For Employers — Those Seeking Talent",
+    "uk-UA": "Для роботодавців — тих, хто шукає таланти"
+  },
+  "employersText": {
+    "en-US": "We also work for companies that want to go beyond standard hiring practices and find the best talent among those often overlooked. We’re for you if you:",
+    "uk-UA": "Ми також працюємо для компаній, які хочуть вийти за межі стандартного підходу до найму і знайти найкращих спеціалістів серед тих, кого часто недооцінюють. Ми для вас, якщо ви:"
+  },
+  "employersDiversity": {
+    "en-US": "Seek diversity in your team: We provide access to qualified candidates you might miss with traditional filters — veterans, people with disabilities, those returning to work after a break. Diversity is strength, and we help you unlock it.",
+    "uk-UA": "Прагнете різноманітності в команді: Ми відкриваємо доступ до кваліфікованих кандидатів, яких ви могли б пропустити через традиційні фільтри — ветеранів, людей з інвалідністю, тих, хто повертається до роботи після паузи. Різноманітність — це сила, і ми допомагаємо вам її розкрити."
+  },
+  "employersEfficiency": {
+    "en-US": "Seek efficiency: Our technology lets you quickly assess candidates’ skills without bias. You get only those who truly meet your needs, saving time and resources.",
+    "uk-UA": "Шукаєте ефективність: Наші технології дозволяють швидко оцінити навички кандидатів без упереджень. Ви отримуєте лише тих, хто дійсно відповідає вашим потребам, економлячи час і ресурси."
+  },
+  "employersResponsibility": {
+    "en-US": "Believe in social responsibility: Partnering with FairView isn’t just about hiring — it’s about supporting those who need a second chance. You become part of change, helping war heroes and people with special needs integrate into society.",
+    "uk-UA": "Вірите в соціальну відповідальність: Співпраця з FairView — це не лише про найм, а й про підтримку тих, хто потребує другого шансу. Ви стаєте частиною змін, допомагаючи героям війни та людям з особливими потребами інтегруватися в суспільство."
+  },
+  "employersInnovation": {
+    "en-US": "Want innovation: We offer a modern approach to recruiting — from anonymous assessments to flexible formats. It’s a chance for your company to stand out as a progressive employer that values talent above all.",
+    "uk-UA": "Хочете інновацій: Ми пропонуємо сучасний підхід до рекрутингу — від анонімних оцінок до гнучких форматів. Це шанс для вашої компанії виділитися як прогресивного роботодавця, який цінує талант понад усе."
+  },
+  "societyTitle": {
+    "en-US": "For Society — Those Building the Future",
+    "uk-UA": "Для суспільства — тих, хто будує майбутнє"
+  },
+  "societyText": {
+    "en-US": "We work not just for individuals or companies, but for a broader goal — creating a job market free of discrimination, where opportunities are open to all. By supporting war heroes, people with special needs, and everyone striving for change, we’re building a fairer future together.",
+    "uk-UA": "Ми працюємо не лише для окремих людей чи компаній, а й для ширшої мети — створення ринку праці, де немає місця дискримінації, а можливості доступні кожному. Підтримуючи героїв війни, людей з особливими потребами та всіх, хто прагне змін, ми разом будуємо справедливіше майбутнє."
+  },
+  "closingText": {
+    "en-US": "FairView is more than a platform. It’s a community building a fair future of work.",
+    "uk-UA": "FairView — це більше, ніж платформа. Це спільнота, яка будує справедливе майбутнє праці."
+  },
+  "joinUsText": {
+    "en-US": "Join us!",
+    "uk-UA": "Приєднуйтесь до нас!"
+  }
+}
