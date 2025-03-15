@@ -74,11 +74,11 @@ export const HomePage = () => {
 
     return (
         <Container className={classes.container}>
-            <Typography variant="h2" className={classes.title}>
+            <Typography variant="h3" className={classes.title}>
                 {`${homePageLocales.find(item => item.hasOwnProperty('welcome'))?.welcome[language.language] || ''}`}
             </Typography>
             <br/>
-            <Typography variant="h3" className={classes.description}>
+            <Typography variant="h4" className={classes.description}>
                 {`${homePageLocales.find(item => item.hasOwnProperty('subtitle'))?.subtitle[language.language] || ''}`}
             </Typography>
             <br/>
