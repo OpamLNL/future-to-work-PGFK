@@ -1,0 +1,272 @@
+[
+    {
+        "title": {
+            "en-US": "For Candidates",
+            "uk-UA": "Для кандидатів"
+        }
+    },
+    {
+        "intro": {
+            "en-US": "The FairView adaptive interview platform is designed to help candidates like you shine during the hiring process. We provide a stress-free, accessible, and fair environment to showcase your skills and connect with employers who value diversity and inclusion.",
+            "uk-UA": "Платформа адаптивних співбесід FairView створена, щоб допомагати кандидатам, таким як ви, розкрити свій потенціал під час найму. Ми пропонуємо безстресове, доступне та справедливе середовище, щоб продемонструвати ваші навички та зв’язатися з роботодавцями, які цінують різноманітність та інклюзію."
+        }
+    },
+    {
+        "whyTitle": {
+            "en-US": "Why Choose FairView?",
+            "uk-UA": "Чому обрати FairView?"
+        }
+    },
+    {
+        "whyItems": {
+            "en-US": [
+                "Personalized interview formats: video, text, phone, or written tests – you choose what works best for you.",
+                "Accessibility-first design: support for sign language, subtitles, and adjustable timing to meet your needs.",
+                "Bias-free evaluation: our technology ensures your skills are judged fairly, not your background.",
+                "Comfortable experience: reduce stress and focus on presenting your best self."
+            ],
+            "uk-UA": [
+                "Персоналізовані формати співбесід: відео, текст, телефон або письмові тести – обирайте, що вам зручніше.",
+                "Дизайн із пріоритетом доступності: підтримка жестової мови, субтитри та гнучкий час для ваших потреб.",
+                "Оцінка без упереджень: наша технологія гарантує справедливу оцінку ваших навичок, а не вашого походження.",
+                "Комфортний досвід: зменшуйте стрес і зосереджуйтесь на тому, щоб показати себе з найкращого боку."
+            ]
+        }
+    },
+    {
+        "solutionTitle": {
+            "en-US": "A Solution Tailored for You",
+            "uk-UA": "Рішення, створене для вас"
+        }
+    },
+    {
+        "solutionDescription": {
+            "en-US": "The FairView platform addresses specific challenges faced by candidates by offering a revolutionary approach to interviews. Whether you have special needs, face discrimination, or simply want a more comfortable process, FairView ensures equal opportunities and empowers you to succeed.",
+            "uk-UA": "Платформа FairView вирішує конкретні проблеми, з якими стикаються кандидати, пропонуючи революційний підхід до співбесід. Незалежно від того, чи маєте ви особливі потреби, стикаєтеся з дискримінацією, чи просто хочете комфортнішого процесу, FairView гарантує рівні можливості та допомагає вам досягти успіху."
+        }
+    },
+    {
+        "callToAction": {
+            "en-US": "Join FairView today and take the first step toward a fairer, more inclusive job search.",
+            "uk-UA": "Приєднуйтесь до FairView сьогодні та зробіть перший крок до справедливішого та інклюзивнішого пошуку роботи."
+        }
+    },
+    {
+        "button": {
+            "en-US": "Fill out the form",
+            "uk-UA": "Заповнити анкету"
+        }
+    },
+    {
+        "formTitle": {
+            "en-US": "Candidate Interview Form",
+            "uk-UA": "Анкета для кандидатів щодо формату співбесіди"
+        }
+    },
+    {
+        "formSubtitle": {
+            "en-US": "Helps us tailor the process to your needs.",
+            "uk-UA": "Допоможе адаптувати процес під ваші потреби."
+        }
+    },
+    {
+        "generalInfo": {
+            "en-US": "General Information",
+            "uk-UA": "Загальна інформація"
+        }
+    },
+    {
+        "nameLabel": {
+            "en-US": "Your Name (optional)",
+            "uk-UA": "Ваше ім'я (необов’язково)"
+        }
+    },
+    {
+        "positionLabel": {
+            "en-US": "Position Applied For",
+            "uk-UA": "Посада, на яку подаєтесь"
+        }
+    },
+    {
+        "experienceLabel": {
+            "en-US": "Your Experience Level",
+            "uk-UA": "Ваш рівень досвіду"
+        }
+    },
+    {
+        "experienceOptions": {
+            "en-US": [
+                { "value": "entry", "label": "Entry Level" },
+                { "value": "mid", "label": "Mid Level" },
+                { "value": "senior", "label": "Experienced Specialist" }
+            ],
+            "uk-UA": [
+                { "value": "entry", "label": "Початковий рівень" },
+                { "value": "mid", "label": "Середній рівень" },
+                { "value": "senior", "label": "Досвідчений спеціаліст" }
+            ]
+        }
+    },
+    {
+        "interviewFormatTitle": {
+            "en-US": "Interview Format",
+            "uk-UA": "Формат співбесіди"
+        }
+    },
+    {
+        "interviewFormatLabel": {
+            "en-US": "Which interview format is most comfortable for you? (select all that apply)",
+            "uk-UA": "Який формат співбесіди вам найбільш комфортний? (можна обрати кілька варіантів)"
+        }
+    },
+    {
+        "interviewFormatOptions": {
+            "en-US": [
+                { "value": "inperson", "label": "In-person (office/coworking)" },
+                { "value": "video", "label": "Video Call (Zoom, Google Meet, etc.)" },
+                { "value": "phone", "label": "Phone Call" },
+                { "value": "text", "label": "Text Chat" },
+                { "value": "written", "label": "Written Test" }
+            ],
+            "uk-UA": [
+                { "value": "inperson", "label": "Очна (офіс/коворкінг)" },
+                { "value": "video", "label": "Відеозв’язок (Zoom, Google Meet тощо)" },
+                { "value": "phone", "label": "Телефонна розмова" },
+                { "value": "text", "label": "Текстовий чат" },
+                { "value": "written", "label": "Письмове тестування" }
+            ]
+        }
+    },
+    {
+        "englishComfortLabel": {
+            "en-US": "Are you comfortable interviewing in English?",
+            "uk-UA": "Чи вам комфортно проходити співбесіду англійською?"
+        }
+    },
+    {
+        "englishComfortOptions": {
+            "en-US": [
+                { "value": "yes", "label": "Yes" },
+                { "value": "no", "label": "No, prefer native language" },
+                { "value": "translator", "label": "I need a translator" }
+            ],
+            "uk-UA": [
+                { "value": "yes", "label": "Так" },
+                { "value": "no", "label": "Ні, бажано рідною мовою" },
+                { "value": "translator", "label": "Мені потрібен перекладач" }
+            ]
+        }
+    },
+    {
+        "languageNeedsLabel": {
+            "en-US": "Any language or cultural needs to consider?",
+            "uk-UA": "Чи є у вас мовні чи культурні особливості, які варто врахувати?"
+        }
+    },
+    {
+        "accessibilityTitle": {
+            "en-US": "Accessibility & Special Needs",
+            "uk-UA": "Доступність та особливі потреби"
+        }
+    },
+    {
+        "specialNeedsLabel": {
+            "en-US": "Do you have any special needs for a comfortable interview?",
+            "uk-UA": "Чи маєте ви якісь особливі потреби для комфортної співбесіди?"
+        }
+    },
+    {
+        "specialNeedsOptions": {
+            "en-US": [
+                { "value": "subtitles", "label": "Yes, I need subtitles" },
+                { "value": "extraTime", "label": "Yes, I need extra time for responses" },
+                { "value": "textComm", "label": "Yes, I prefer text communication" },
+                { "value": "none", "label": "No, standard format works for me" }
+            ],
+            "uk-UA": [
+                { "value": "subtitles", "label": "Так, мені потрібні субтитри" },
+                { "value": "extraTime", "label": "Так, мені потрібно більше часу для відповідей" },
+                { "value": "textComm", "label": "Так, мені зручніше текстове спілкування" },
+                { "value": "none", "label": "Ні, мені підходить стандартний формат" }
+            ]
+        }
+    },
+    {
+        "neurodiversityLabel": {
+            "en-US": "Any adaptations needed for neurodiversity or mental health?",
+            "uk-UA": "Чи потрібні вам адаптації через нейродивергентність або ментальне здоров'я?"
+        }
+    },
+    {
+        "timingTitle": {
+            "en-US": "Flexibility & Timing",
+            "uk-UA": "Гнучкість та таймінг"
+        }
+    },
+    {
+        "preferredTimeLabel": {
+            "en-US": "What time of day works best for you?",
+            "uk-UA": "Який час доби вам найбільше підходить для співбесіди?"
+        }
+    },
+    {
+        "preferredTimeOptions": {
+            "en-US": [
+                { "value": "morning", "label": "Morning (8:00 - 12:00)" },
+                { "value": "afternoon", "label": "Day (12:00 - 17:00)" },
+                { "value": "evening", "label": "Evening (17:00 - 21:00)" },
+                { "value": "other", "label": "Other" }
+            ],
+            "uk-UA": [
+                { "value": "morning", "label": "Ранок (8:00 - 12:00)" },
+                { "value": "afternoon", "label": "День (12:00 - 17:00)" },
+                { "value": "evening", "label": "Вечір (17:00 - 21:00)" },
+                { "value": "other", "label": "Інше" }
+            ]
+        }
+    },
+    {
+        "otherTimeLabel": {
+            "en-US": "Other Time Preference",
+            "uk-UA": "Інший бажаний час"
+        }
+    },
+    {
+        "breaksLabel": {
+            "en-US": "Do you need breaks during long interviews?",
+            "uk-UA": "Чи вам важливо мати перерви під час довгих співбесід?"
+        }
+    },
+    {
+        "breaksOptions": {
+            "en-US": [
+                { "value": "30min", "label": "Yes, every 30 minutes" },
+                { "value": "hour", "label": "Yes, every hour" },
+                { "value": "no", "label": "No, I can go without breaks" }
+            ],
+            "uk-UA": [
+                { "value": "30min", "label": "Так, бажано кожні 30 хв" },
+                { "value": "hour", "label": "Так, раз на годину" },
+                { "value": "no", "label": "Ні, можу пройти співбесіду без перерв" }
+            ]
+        }
+    },
+    {
+        "additionalRequestsTitle": {
+            "en-US": "Additional Requests",
+            "uk-UA": "Додаткові побажання"
+        }
+    },
+    {
+        "additionalRequestsLabel": {
+            "en-US": "Any additional requirements or wishes for the interview process?",
+            "uk-UA": "Чи є у вас ще якісь вимоги чи побажання до процесу співбесіди?"
+        }
+    },
+    {
+        "submitButton": {
+            "en-US": "Submit",
+            "uk-UA": "Надіслати"
+        }
+    }
+]

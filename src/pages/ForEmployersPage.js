@@ -81,10 +81,10 @@ const useStyles = makeStyles((theme) => ({
     },
     actionButton: {
         padding: theme.spacing(1, 2),
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
+        backgroundColor: '#4caf50', // Зелений колір (можesz змінити на інший відтінок)
+        color: '#fff', // Білий текст
         '&:hover': {
-            backgroundColor: theme.palette.primary.dark,
+            backgroundColor: '#388e3c', // Темніший зелений при наведенні
         },
         [theme.breakpoints.up('sm')]: {
             fontSize: '1.2rem',
@@ -186,24 +186,22 @@ export const ForEmployersPage = () => {
             <Typography variant="h5" className={classes.title}>
                 "{content.slogan}"
             </Typography>
-            <div className={classes.actionButtons}>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.actionButton}
-                    onClick={() => console.log('Register clicked')}
-                >
-                    {content.registerButton}
-                </Button>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.actionButton}
-                    onClick={() => console.log('Stats clicked')}
-                >
-                    {content.statsButton}
-                </Button>
-            </div>
+<div className={classes.actionButtons}>
+    <Button
+        variant="contained"
+        className={classes.actionButton}
+        onClick={() => console.log('Register clicked')}
+    >
+        {content.registerButton}
+    </Button>
+    <Button
+        variant="contained"
+        className={classes.actionButton}
+        onClick={() => console.log('Stats clicked')}
+    >
+        {content.statsButton}
+    </Button>
+</div>
         </Container>
     );
 };
