@@ -1,7 +1,8 @@
 import { axiosInstance } from "../api/axiosConfig";
 
 export const fetchCompaniesLocation = async () => {
-    const url = "https://abbd-188-163-68-67.ngrok-free.app/api/companies/";
+    //const url = "https://abbd-188-163-68-67.ngrok-free.app/api/companies/";
+    const url = "http://localhost:4000/data";
 
     try {
         const response = await axiosInstance.get(url, {

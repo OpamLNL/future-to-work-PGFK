@@ -1,11 +1,14 @@
-import { InfoWindow, Map, Marker } from "@vis.gl/react-google-maps";
+import { Map } from "@vis.gl/react-google-maps";
 import React, { useEffect, useRef, useState } from "react";
 import { getCoordinates } from "../../services/geocodeService";
 import { fetchCompaniesLocation } from "../../services/mapService";
+import { MarkerWithInfoWindow } from "../MarkerWithInfoWindow/MarkerWithInfoWindow";
 
 const MapComponent = ({ markers, apiKey }) => {
     const [companiesMarkers, setCompaniesMarkers] = useState([]);
     const isFetched = useRef(false);
+
+    const mapRef = useRef(null);
 
     useEffect(() => {
         if (isFetched.current) return;
@@ -25,6 +28,9 @@ const MapComponent = ({ markers, apiKey }) => {
                                 position: location,
                                 title: company.name,
                                 address: company.address,
+                                email: company.email,
+                                accessibility_criteria:
+                                    company.accessibility_criteria,
                             };
                         })
                     );
@@ -45,16 +51,11 @@ const MapComponent = ({ markers, apiKey }) => {
             defaultZoom={3}
             gestureHandling="greedy"
             disableDefaultUI={true}
+            language="uk"
+            ref={mapRef}
         >
             {[...companiesMarkers, ...markers].map((marker, index) => (
-                <Marker key={index} position={marker.position}>
-                    <InfoWindow position={marker.position}>
-                        <div>
-                            <h3>{marker.title}</h3>
-                            <p>{marker.address}</p>
-                        </div>
-                    </InfoWindow>
-                </Marker>
+                <MarkerWithInfoWindow key={index} markerData={marker} />
             ))}
         </Map>
     );

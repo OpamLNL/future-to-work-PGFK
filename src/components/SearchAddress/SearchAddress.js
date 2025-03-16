@@ -5,19 +5,26 @@ const useStyles = makeStyles((theme) => ({
     container: {
         padding: "25px 20px",
         maxWidth: "1000px",
+        minWidth: "auto",
+        minHeight: "auto",
         borderRadius: "10px",
         alignItems: "center",
-        display: "flex",
+        justifyContent: "center",
+        display: "inline-flex",
+
         backgroundColor: theme.palette.primary.containerBackground,
     },
     input: {
-        border: "none",
+        border: "1px solid gray",
         borderRadius: "5px",
         backgroundColor: theme.palette.primary.light,
         padding: "10px",
         marginRight: "5px",
         fontSize: "24px",
         color: theme.palette.primary.contrastText,
+        "&::placeholder": {
+            color: theme.palette.primary.contrastText,
+        },
     },
     button: {
         border: "none",
