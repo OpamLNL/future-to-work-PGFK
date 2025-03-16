@@ -2,13 +2,33 @@ import { makeStyles } from '@material-ui/core/styles';
 import React, { useContext } from 'react';
 import { LanguageContext } from '../language/language-context';
 import aboutUsPageLocales from './Locales/aboutUsPageLocales.json';
+import { Container, Typography } from '@mui/material';
+
+
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'start',
+    minHeight: '100vh',
+    padding: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(3),
+    },
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(4),
+    },
+
+    overflow: 'hidden',
+  },
+
   list: {
     width: '100%',
-    padding: theme.spacing(4),
+    padding: theme.spacing(1),
     margin: 'auto',
-    marginLeft: '5rem',/////////////////////////////////
+    marginLeft: '1rem',/////////////////////////////////
     color: theme.palette.text.primary,
     borderRadius: theme.shape.borderRadius,
     boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
@@ -65,7 +85,7 @@ export const AboutUsPage = () => {
   const getText = (key) => aboutUsPageLocales[key][language] || aboutUsPageLocales[key]['en-US'];
 
   return (
-    <div>
+      <Container className={classes.container}>
       <div className={classes.list}>
         <div className={classes.section}>
           <h1 className={classes.title}>{getText('welcomeTitle')}</h1>
@@ -125,6 +145,6 @@ export const AboutUsPage = () => {
           <p className={classes.text} style={{ textAlign: 'center' }}>{getText('joinUsText')}</p>
         </div>
       </div>
-    </div>
+      </Container>
   );
 };
