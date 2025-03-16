@@ -107,7 +107,7 @@ export const SignUpPage = () => {
                         {error && <Typography className={classes.errorText}>{error}</Typography>}
                     </Grid>
                     {[
-                        { name: 'username', type: 'text', labelKey: 'lblUserName' },
+                        { name: 'name', type: 'text', labelKey: 'lblUserName' },
                         { name: 'email', type: 'email', labelKey: 'lblEmail' },
                         { name: 'password', type: 'password', labelKey: 'lblPassword' },
                         { name: 'phone_number', type: 'tel', labelKey: 'lblPoneNumber' },
