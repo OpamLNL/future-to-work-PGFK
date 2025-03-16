@@ -1,10 +1,9 @@
 import { makeStyles } from "@material-ui/core";
-import { Map } from "@vis.gl/react-google-maps";
+import { Map, Marker } from "@vis.gl/react-google-maps";
 import React, { useEffect, useState } from "react";
 import { getCoordinates } from "../../services/geocodeService";
 import { fetchCompaniesLocation } from "../../services/mapService";
 import MarkerDetails from "../MarkerDetails/MarkerDetails";
-import { MarkerWithInfoWindow } from "../MarkerWithInfoWindow/MarkerWithInfoWindow";
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -82,6 +81,16 @@ const MapComponent = ({ markers, apiKey }) => {
         fetchCompanies();
     }, [apiKey]);
 
+    useEffect(() => {
+        if (map && companiesMarkers.length > 0) {
+            setCompaniesMarkers([]);
+        }
+    }, [map]);
+
+    const handleMarkerClick = (marker) => {
+        setSelectedMarker(marker);
+    };
+
     return (
         <div className={classes.container}>
             <Map
@@ -94,12 +103,10 @@ const MapComponent = ({ markers, apiKey }) => {
                 onLoad={(mapInstance) => setMap(mapInstance)}
             >
                 {[...companiesMarkers, ...markers].map((marker, index) => (
-                    <MarkerWithInfoWindow
+                    <Marker
                         key={index}
-                        markerData={marker}
-                        map={map}
-                        isSelected={selectedMarker === marker}
-                        onMarkerClick={() => setSelectedMarker(marker)}
+                        position={marker.position}
+                        onClick={() => handleMarkerClick(marker)}
                     />
                 ))}
             </Map>
