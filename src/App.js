@@ -101,14 +101,18 @@ export const App = () => {
         setTheme(theme === lightTheme ? darkTheme : lightTheme);
     };
 
-    const logout = () => {
-        localStorage.removeItem('jwtAccessToken');
-        localStorage.removeItem('jwtRefreshToken');
-        localStorage.removeItem('user');
-        localStorage.removeItem('favorites');
-
+    const user = {
+        id: 1,
+        name: "Петро Кращий",
+        email: "ipetro@email.com",
+        phone: "+380501234567",
+        age: 30,
+        gender: "male",
+        country: "Україна",
+        city: "Київ",
+        role: "candidate",
+        isActive: true,
     };
-
 
 
     // useEffect(() => {
