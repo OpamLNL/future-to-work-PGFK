@@ -115,7 +115,7 @@ export const ServiceBar = () => {
                     </div>
                 </div>
                 <div>
-                    {/*<UserInfo/>*/}
+                    <UserInfo/>
                 </div>
 
             </SectionContainer>
