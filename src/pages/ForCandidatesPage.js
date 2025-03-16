@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: theme.typography.fontFamily,
         marginBottom: theme.spacing(2),
         textAlign: 'left',
-        color: theme.palette.text.primary, // Темний текст у світлому режимі, білий у темному
+        color: theme.palette.primary.contrastText,
         display: 'block',
         [theme.breakpoints.up('sm')]: {
             fontSize: '2rem',
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: theme.spacing(4),
         marginTop: theme.spacing(2),
         textAlign: 'left',
-        color: theme.palette.text.secondary,
+        color: theme.palette.primary.dark,
         display: 'block',
         [theme.breakpoints.up('sm')]: {
             fontSize: '1.2rem',
@@ -126,6 +126,7 @@ export const ForCandidatesPage = () => {
         additionalRequestsTitle: candidatesPageLocales.find(item => item.hasOwnProperty('additionalRequestsTitle'))?.additionalRequestsTitle[language.language] || '',
         additionalRequestsLabel: candidatesPageLocales.find(item => item.hasOwnProperty('additionalRequestsLabel'))?.additionalRequestsLabel[language.language] || '',
         submitButton: candidatesPageLocales.find(item => item.hasOwnProperty('submitButton'))?.submitButton[language.language] || '',
+        slogan: candidatesPageLocales.find(item => item.hasOwnProperty('slogan'))?.slogan[language.language] || '',
     };
 
     const fullText = [
@@ -136,6 +137,7 @@ export const ForCandidatesPage = () => {
         content.solutionTitle,
         content.solutionDescription,
         content.callToAction,
+        content.slogan
     ].join(' ');
 
     const handleSpeak = () => {
@@ -196,6 +198,9 @@ export const ForCandidatesPage = () => {
             <Typography variant="body1" className={classes.description}>
                 {content.callToAction}
             </Typography>
+                        <Typography variant="h5" className={classes.title}>
+                            "{content.slogan}"
+                        </Typography>
             <Button variant="contained" color="primary" onClick={handleOpen}>
                 {content.button}
             </Button>

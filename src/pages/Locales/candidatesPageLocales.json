@@ -268,5 +268,11 @@
             "en-US": "Submit",
             "uk-UA": "Надіслати"
         }
-    }
+    },
+    {
+        "slogan": {
+          "en-US": "There is a place in the world for every person.",
+          "uk-UA": "Для кожної людини є місце у світі."
+        }
+      }
 ]
