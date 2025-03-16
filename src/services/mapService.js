@@ -2,7 +2,7 @@ import { axiosInstance } from "../api/axiosConfig";
 import { apiBaseURL } from "../configs/urls";
 
 export const fetchCompaniesLocation = async () => {
-    const url = `${apiBaseURL}/api/companies/`;
+    const url = `${apiBaseURL}api/companies/`;
 
     try {
         const response = await axiosInstance.get(url, {
