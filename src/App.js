@@ -1,17 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
-import {BrowserRouter as Router, Navigate, Route, Routes, useNavigate} from 'react-router-dom';
-import {Provider, useDispatch} from 'react-redux';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { store } from './store/store';
-import {Header, LeftSidebar, MainMenuMini, Overlay, RightSidebar} from './components';
+import { Header, LeftSidebar, MainMenuMini, Overlay } from './components';
 import {
     AdminLayout,
     AboutUsLayout,
     AccessibilityMapLayout,
     CandidateFormLayout,
     ContactLayout,
-    CandidatesFormLayout,
-    EditProfileLayout,
     ForCandidatesLayout,
     ForEmployersLayout,
     HowItWorksLayout,
@@ -23,10 +21,9 @@ import {
     SignUpLayout,
     UserProfileLayout
 } from './layouts';
-import {ThemeContext} from './themes/theme-context';
-import {darkTheme, lightTheme} from './themes/theme';
-import {LanguageProvider} from './language/language-context';
-import {apiBaseURL} from "./configs/urls";
+import { ThemeContext } from './themes/theme-context';
+import { darkTheme, lightTheme } from './themes/theme';
+import { LanguageProvider } from './language/language-context';
 
 const useStyles = makeStyles(theme => ({
     mainContainer: {
@@ -43,44 +40,16 @@ const useStyles = makeStyles(theme => ({
             width: '400px',
             top: '160px',
         }
-
     },
     mainContainerLeft: {
         gridArea: 'left',
-        left: 0,
-        top: 0,
-        bottom: 0,
         [theme.breakpoints.down('sm')]: {
             display: 'none',
-        }
-    },
-    mainContainerRight: {
-        gridArea: 'right',
-        right: 0,
-        top: 0,
-        bottom: 0,
-        [theme.breakpoints.down('md')]: {
-
         }
     },
     mainContainerCenter: {
         gridArea: 'main',
         padding: '2px',
-        alignItems: 'flex-end',
-        justifyContent: 'flex-end',
-        flexDirection: 'column',
-
-        [theme.breakpoints.down('sm')]: {
-            marginLeft: 0,
-            marginRight: 0,
-        },
-        [theme.breakpoints.down('md')]: {
-            marginRight: 0,
-        },
-        [theme.breakpoints.down('sm')]: {
-            marginLeft: 0,
-            marginRight: 0,
-        }
     },
     header: {
         gridArea: 'header',
@@ -89,23 +58,21 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-
-
 export const App = () => {
     const [theme, setTheme] = useState(darkTheme);
     const classes = useStyles();
-    // const dispatch = useDispatch();
-    // const navigate = useNavigate();
 
-    const toggleTheme = () => {
-        setTheme(theme === lightTheme ? darkTheme : lightTheme);
-    };
+    localStorage.clear();
 
-    const user = {
+
+    // Функція для запису тестового користувача
+    const mockUser = {
         id: 1,
+        username: "petro_k",
         name: "Петро Кращий",
         email: "ipetro@email.com",
         phone: "+380501234567",
+        avatar: require("../src/assets/avatar.png"),
         age: 30,
         gender: "male",
         country: "Україна",
@@ -113,51 +80,31 @@ export const App = () => {
         role: "candidate",
         isActive: true,
     };
-
-    const logout = () => {
-        localStorage.removeItem('jwtAccessToken');
-        localStorage.removeItem('jwtRefreshToken');
-        localStorage.removeItem('user');
-        localStorage.removeItem('favorites');
-
-    };
+    localStorage.setItem('user', JSON.stringify(mockUser));
 
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (user && user.username) {
-            const url = `${apiBaseURL}/api/users/getUserByUsername/${encodeURIComponent(user.username)}`;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    if (!data || data.error) {
-                        console.error('User not found or error occurred:', data.error);
-                        logout();
-                    } else {
-                        console.log('User is valid:', data);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error verifying user:', error);
-                    logout();
-                });
-        } else {
-            logout();
+        // Записуємо користувача в localStorage, якщо його там немає
+        if (!localStorage.getItem('user')) {
+            localStorage.setItem('user', JSON.stringify(mockUser));
+            localStorage.setItem('jwtAccessToken', 'mockedAccessToken');
+            localStorage.setItem('jwtRefreshToken', 'mockedRefreshToken');
         }
     }, []);
 
-
+    const toggleTheme = () => {
+        setTheme(theme === lightTheme ? darkTheme : lightTheme);
+    };
 
     return (
         <Provider store={store}>
             <LanguageProvider>
                 <ThemeContext.Provider value={{ theme, setTheme: toggleTheme }}>
                     <ThemeProvider theme={theme}>
-                        <CssBaseline/>
+                        <CssBaseline />
                         <Router>
-                            <Overlay/>
+                            <Overlay />
                             <div className={classes.header}>
-                                <MainMenuMini/>
+                                <MainMenuMini />
                                 <Header />
                             </div>
                             <div className={classes.mainContainer}>
@@ -166,31 +113,25 @@ export const App = () => {
                                 </div>
                                 <div className={classes.mainContainerCenter}>
                                     <Routes>
-                                        <Route index element={<Navigate to={'home'}/>} />
+                                        <Route index element={<Navigate to={'home'} />} />
                                         <Route path={'home'} element={<MainLayout />} />
                                         <Route path={'sign-up'} element={<SignUpLayout />} />
                                         <Route path={'sign-in'} element={<SignInLayout />} />
                                         <Route path={'admin-page'} element={<AdminLayout />} />
-                                        <Route path={'edit-profile'} element={<EditProfileLayout />} />
+                                        {/*<Route path={'edit-profile'} element={<EditProfileLayout />} />*/}
                                         <Route path={'profile/:username'} element={<ProfileLayout />} />
                                         <Route path={'for-employers'} element={<ForEmployersLayout />} />
                                         <Route path={'for-candidates'} element={<ForCandidatesLayout />} />
                                         <Route path={'about-us'} element={<AboutUsLayout />} />
                                         <Route path={'accessibility-map'} element={<AccessibilityMapLayout />} />
-
                                         <Route path={'how-it-works'} element={<HowItWorksLayout />} />
                                         <Route path={'candidate-form'} element={<CandidateFormLayout />} />
-
-
                                         <Route path={'statistic'} element={<StatisticLayout />} />
                                         <Route path={'search-result/:searchKey'} element={<SearchResultLayout />} />
                                         <Route path={'user-profile/:username'} element={<UserProfileLayout />} />
                                         <Route path={'contacts'} element={<ContactLayout />} />
                                     </Routes>
                                 </div>
-                                {/*<div className={classes.mainContainerRight}>*/}
-                                {/*    <RightSidebar />*/}
-                                {/*</div>*/}
                             </div>
                         </Router>
                     </ThemeProvider>

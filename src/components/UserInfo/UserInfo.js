@@ -4,9 +4,9 @@ import { Avatar, Typography, Button } from '@mui/material';
 import { ThemeContext } from '../../themes/theme-context';
 import { Login as LoginIcon } from '@mui/icons-material';
 import {useNavigate} from "react-router-dom";
-import {apiBaseURL, avatarsURL} from "../../configs/urls";
+// import {apiBaseURL, avatarsURL} from "../../configs/urls";
 
-const IMG_API = apiBaseURL + avatarsURL;
+const IMG_API = '../assets/avatar.png';
 
 const useStyles = makeStyles((theme) => ({
     userCard: {
@@ -46,6 +46,8 @@ const UserInfo = () => {
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem('user'));
 
+    console.log(user);
+
     if (!user) {
         return (
             <Button
@@ -62,11 +64,13 @@ const UserInfo = () => {
     };
 
 
+    console.log(user.avatar);
+
     return (
         <div className={classes.userCard}>
             <Avatar onClick={handleUserProfile}
                 alt={user.username}
-                src={IMG_API + user.avatar}
+                src={user.avatar}
                 sx={{ width: 31, height: 31 }}
             />
             <div className={classes.userCardText}>
