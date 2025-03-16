@@ -3,6 +3,8 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../language/language-context';
 import howItWorksPageLocales from './Locales/howItWorksPageLocales.json';
 
+import howItWorksEN from '../assets/howItWorksEN.png';
+import howItWorksUA from '../assets/howItWorksUA.png';
 import questionnaire1EN from '../assets/questionnaire1EN.png';
 import questionnaire1UA from '../assets/questionnaire1UA.png';
 import questionnaire2EN from '../assets/questionnaire2EN.png';
@@ -69,7 +71,6 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: '100%',
-    maxWidth: '500px',
     [theme.breakpoints.down('sm')]: {
       maxWidth: '100%',
     },
@@ -81,6 +82,18 @@ export const HowItWorksPage = () => {
   const { language } = useContext(LanguageContext);
 
   const getText = (key) => howItWorksPageLocales[key][language] || howItWorksPageLocales[key]['en-US'];
+
+
+  const howItWorks = () => {
+    switch (language) {
+      case 'uk-UA':
+        return howItWorksUA;
+      case 'en-US':
+      default:
+        return howItWorksEN;
+    }
+  };
+
 
   const questionnaire1 = () => {
     switch (language) {
@@ -118,6 +131,13 @@ export const HowItWorksPage = () => {
       <div className={classes.section}>
         <h1 className={classes.title}>{getText('title')}</h1>
         <p className={classes.text}>{getText('intro')}</p>
+        <div className={classes.imageContainer}>
+          <img
+            src={howItWorks()}
+            alt={language === 'uk-UA' ? 'Як це працює?' : 'How it works?'}
+            className={classes.image}
+          />
+        </div>
       </div>
 
       <div className={classes.section}>
@@ -131,12 +151,12 @@ export const HowItWorksPage = () => {
         <h2 className={classes.stepTitle}>{getText('step2Title')}</h2>
         <p className={classes.text}>{getText('step2Text')}</p>
         <div className={classes.imageContainer}>
-          <img
+          <img style={{ maxWidth: '500px' }}
             src={questionnaire1()}
             alt={language === 'uk-UA' ? 'Заповнення анкети' : 'Filling out the questionnaire'}
             className={classes.image}
           />
-          <img
+          <img style={{ maxWidth: '500px' }}
             src={questionnaire2()}
             alt={language === 'uk-UA' ? 'Заповнення анкети' : 'Filling out the questionnaire'}
             className={classes.image}
