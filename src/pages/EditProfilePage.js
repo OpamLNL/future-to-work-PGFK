@@ -24,7 +24,7 @@ export const EditProfilePage = () => {
         username: '',
         email: '',
         password: '',
-        avatar: null,
+        avatar: require("../assets/avatar.png"),
         birth_date: '',
         bio: '',
         phone_number: '',

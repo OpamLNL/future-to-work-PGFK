@@ -66,30 +66,30 @@ export const App = () => {
 
 
     //  запис тестового користувача
-    const mockUser = {
-        id: 1,
-        username: "petro_k",
-        name: "Петро Кращий",
-        email: "ipetro@email.com",
-        phone: "+380501234567",
-        avatar: require("../src/assets/avatar.png"),
-        age: 30,
-        gender: "male",
-        country: "Україна",
-        city: "Київ",
-        role: "candidate",
-        isActive: true,
-    };
-    localStorage.setItem('user', JSON.stringify(mockUser));
-
-    useEffect(() => {
-        // Записуємо користувача в localStorage, якщо його там немає
-        if (!localStorage.getItem('user')) {
-            localStorage.setItem('user', JSON.stringify(mockUser));
-            localStorage.setItem('jwtAccessToken', 'mockedAccessToken');
-            localStorage.setItem('jwtRefreshToken', 'mockedRefreshToken');
-        }
-    }, []);
+    // const mockUser = {
+    //     id: 1,
+    //     username: "petro_k",
+    //     name: "Петро Кращий",
+    //     email: "ipetro@email.com",
+    //     phone: "+380501234567",
+    //     avatar: require("../src/assets/avatar.png"),
+    //     age: 30,
+    //     gender: "male",
+    //     country: "Україна",
+    //     city: "Київ",
+    //     role: "candidate",
+    //     isActive: true,
+    // };
+    // localStorage.setItem('user', JSON.stringify(mockUser));
+    //
+    // useEffect(() => {
+    //     // Записуємо користувача в localStorage, якщо його там немає
+    //     if (!localStorage.getItem('user')) {
+    //         localStorage.setItem('user', JSON.stringify(mockUser));
+    //         localStorage.setItem('jwtAccessToken', 'mockedAccessToken');
+    //         localStorage.setItem('jwtRefreshToken', 'mockedRefreshToken');
+    //     }
+    // }, []);
 
     const toggleTheme = () => {
         setTheme(theme === lightTheme ? darkTheme : lightTheme);
