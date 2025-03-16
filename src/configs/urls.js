@@ -1,6 +1,6 @@
 //змінити на іншому хостінгу
 // const apiBaseURL = 'http://localhost:5000';
-const apiBaseURL = "https://future-to-work-pgfk.vercel.app/";
+const apiBaseURL = "https://a589-188-163-68-67.ngrok-free.app/";
 const epicWorksURL = "/images/epicWorks-repository/";
 const charactersURL = "/images/characters-repository/";
 const avatarsURL = "/images/avatars/";
