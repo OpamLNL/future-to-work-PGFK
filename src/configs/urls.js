@@ -1,6 +1,6 @@
 //змінити на іншому хостінгу
 // const apiBaseURL = 'http://localhost:5000';
-const apiBaseURL = "https://epic-saga-server.vercel.app";
+const apiBaseURL = "https://future-to-work-pgfk.vercel.app/";
 const epicWorksURL = "/images/epicWorks-repository/";
 const charactersURL = "/images/characters-repository/";
 const avatarsURL = "/images/avatars/";
