@@ -25,7 +25,7 @@ const MainMenu = () => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                marginBottom: '2px'
+                                marginBottom: '1px'
                             }}
                         >
                             <Icon name="inbox"/>
