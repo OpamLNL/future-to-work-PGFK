@@ -1,14 +1,12 @@
 import { useContext, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
-import { createUser } from '../store/reducers/users/usersActions';
 import { TextField, Typography, Link, Grid } from '@mui/material';
-import css from './SignUpPage.module.css';
 import { makeStyles } from "@material-ui/core/styles";
+import css from './SignUpPage.module.css';
 import signUpPageLocales from "./Locales/signUpPageLocales.json";
 import { LanguageContext } from "../language/language-context";
 import { Button } from '../components';
+import { axiosInstance } from '../api/axiosConfig';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -56,6 +54,11 @@ const useStyles = makeStyles((theme) => ({
             top: 920,
             marginTop: theme.spacing(2),
         },
+    },
+    errorText: {
+        color: 'red',
+        marginTop: theme.spacing(1),
+        textAlign: 'center',
     }
 }));
 
@@ -63,17 +66,17 @@ export const SignUpPage = () => {
     const language = useContext(LanguageContext);
     const classes = useStyles();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const [error, setError] = useState("");
     const [formData, setFormData] = useState({
         username: '',
         email: '',
         password: '',
         avatar: '',
         birth_date: '',
-        bio: '',
+        biography: '',
         phone_number: '',
-        language: '',
-        timezone: '',
+        language: 'en',
+        timezone: 'UTC',
     });
 
     const handleChange = (event) => {
@@ -82,149 +85,67 @@ export const SignUpPage = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setError("");
 
-        dispatch(createUser(formData, (user, tokens) => {
-            if (tokens) {
-                localStorage.setItem('jwtAccessToken', tokens.accessToken);
-                localStorage.setItem('jwtRefreshToken', tokens.refreshToken);
-                localStorage.setItem('user', JSON.stringify(user));
-                navigate('/home');
-            }
-            
-        }));
-        navigate('/home');
+        try {
+            const response = await axiosInstance.post('/api/auth/register', formData);
+            const { user, accessToken } = response.data;
+            localStorage.setItem('jwtAccessToken', accessToken);
+            localStorage.setItem('user', JSON.stringify(user));
+            navigate('/home');
+        } catch (error) {
+            const errorMsg = error.response?.data?.error || 'Невідома помилка';
+            setError(`Не вдалося зареєструватися: ${errorMsg}`);
+        }
     };
 
     return (
         <div className={css.signUpFieldsBlock}>
             <form onSubmit={handleSubmit} className={classes.paper}>
                 <Grid container spacing={3}>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            label={`${signUpPageLocales.find(item => item.hasOwnProperty('lblUserName'))?.lblUserName[language.language] || ''}`}
-                            variant="outlined"
-                            fullWidth
-                            name="username"
-                            value={formData.username}
-                            onChange={handleChange}
-                            InputLabelProps={{ shrink: true }}
-                            className={classes.textField}
-                        />
+                    <Grid item xs={12}>
+                        {error && <Typography className={classes.errorText}>{error}</Typography>}
                     </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            label={`${signUpPageLocales.find(item => item.hasOwnProperty('lblEmail'))?.lblEmail[language.language] || ''}`}
-                            variant="outlined"
-                            fullWidth
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            type="email"
-                            InputLabelProps={{ shrink: true }}
-                            className={classes.textField}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            label={`${signUpPageLocales.find(item => item.hasOwnProperty('lblPassword'))?.lblPassword[language.language] || ''}`}
-                            variant="outlined"
-                            fullWidth
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            type="password"
-                            InputLabelProps={{ shrink: true }}
-                            className={classes.textField}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            label={`${signUpPageLocales.find(item => item.hasOwnProperty('lblPoneNumber'))?.lblPoneNumber[language.language] || ''}`}
-                            variant="outlined"
-                            fullWidth
-                            name="phone_number"
-                            value={formData.phone_number}
-                            onChange={handleChange}
-                            type="tel"
-                            InputLabelProps={{ shrink: true }}
-                            className={classes.textField}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            label={`${signUpPageLocales.find(item => item.hasOwnProperty('lblBio'))?.lblBio[language.language] || ''}`}
-                            variant="outlined"
-                            fullWidth
-                            name="bio"
-                            value={formData.bio}
-                            onChange={handleChange}
-                            multiline
-                            rows={3}
-                            InputLabelProps={{ shrink: true }}
-                            className={classes.textField}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            label={`${signUpPageLocales.find(item => item.hasOwnProperty('lblBirthday'))?.lblBirthday[language.language] || ''}`}
-                            variant="outlined"
-                            fullWidth
-                            name="birth_date"
-                            value={formData.birth_date}
-                            onChange={handleChange}
-                            type="date"
-                            InputLabelProps={{ shrink: true }}
-                            className={classes.textField}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            label={`${signUpPageLocales.find(item => item.hasOwnProperty('lblLanguage'))?.lblLanguage[language.language] || ''}`}
-                            variant="outlined"
-                            fullWidth
-                            name="language"
-                            value={formData.language}
-                            onChange={handleChange}
-                            InputLabelProps={{ shrink: true }}
-                            className={classes.textField}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            label={`${signUpPageLocales.find(item => item.hasOwnProperty('lblTimezone'))?.lblTimezone[language.language] || ''}`}
-                            variant="outlined"
-                            fullWidth
-                            name="timezone"
-                            value={formData.timezone}
-                            onChange={handleChange}
-                            InputLabelProps={{ shrink: true }}
-                            className={classes.textField}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            label={`${signUpPageLocales.find(item => item.hasOwnProperty('lblAvatarUrl'))?.lblAvatarUrl[language.language] || ''}`}
-                            variant="outlined"
-                            fullWidth
-                            name="avatar"
-                            value={formData.avatar}
-                            onChange={handleChange}
-                            type="url"
-                            InputLabelProps={{ shrink: true }}
-                            className={classes.textField}
-                        />
-                    </Grid>
+                    {[
+                        { name: 'username', type: 'text', labelKey: 'lblUserName' },
+                        { name: 'email', type: 'email', labelKey: 'lblEmail' },
+                        { name: 'password', type: 'password', labelKey: 'lblPassword' },
+                        { name: 'phone_number', type: 'tel', labelKey: 'lblPoneNumber' },
+                        { name: 'biography', type: 'text', labelKey: 'lblBio', multiline: true, rows: 3 },
+                        { name: 'birth_date', type: 'date', labelKey: 'lblBirthday' },
+                        { name: 'language', type: 'text', labelKey: 'lblLanguage' },
+                        { name: 'timezone', type: 'text', labelKey: 'lblTimezone' },
+                        { name: 'avatar', type: 'url', labelKey: 'lblAvatarUrl' },
+                    ].map(({ name, type, labelKey, multiline = false, rows }) => (
+                        <Grid item xs={12} sm={6} key={name}>
+                            <TextField
+                                label={signUpPageLocales.find(item => item[labelKey])?.[labelKey][language.language] || ''}
+                                variant="outlined"
+                                fullWidth
+                                name={name}
+                                value={formData[name]}
+                                onChange={handleChange}
+                                type={type}
+                                multiline={multiline}
+                                rows={rows}
+                                InputLabelProps={{ shrink: true }}
+                                className={classes.textField}
+                            />
+                        </Grid>
+                    ))}
                     <Grid item xs={12}>
                         <Button type="submit" variant="contained" fullWidth className={classes.button}>
-                            {`${signUpPageLocales.find(item => item.hasOwnProperty('lblSigIn'))?.lblSigIn[language.language] || ''}`}
+                            {signUpPageLocales.find(item => item.hasOwnProperty('lblSigIn'))?.lblSigIn[language.language] || ''}
                         </Button>
                     </Grid>
                 </Grid>
             </form>
             <div className={classes.bottomText}>
-                <Typography >
-                    {`${signUpPageLocales.find(item => item.hasOwnProperty('lblIsHaveAccount'))?.lblIsHaveAccount[language.language] || ''}`}
-                    <Link href="/sign-in" color="inherit">{`${signUpPageLocales.find(item => item.hasOwnProperty('lblLogIn'))?.lblLogIn[language.language] || ''}`}</Link>
+                <Typography>
+                    {signUpPageLocales.find(item => item.hasOwnProperty('lblIsHaveAccount'))?.lblIsHaveAccount[language.language] || ''}
+                    <Link href="/sign-in" color="inherit">
+                        {signUpPageLocales.find(item => item.hasOwnProperty('lblLogIn'))?.lblLogIn[language.language] || ''}
+                    </Link>
                 </Typography>
             </div>
         </div>

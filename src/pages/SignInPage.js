@@ -107,15 +107,14 @@ export const SignInPage = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axiosInstance.post('/api/auth/signin', formData);
-            const { user, accessToken, refreshToken } = response.data;
+            const response = await axiosInstance.post('/api/auth/login', formData);
+            const { user, accessToken } = response.data;
             localStorage.setItem('jwtAccessToken', accessToken);
-            localStorage.setItem('jwtRefreshToken', refreshToken);
             localStorage.setItem('user', JSON.stringify(user));
 
             navigate('/home');
         } catch (error) {
-            const errorMsg = error.response?.data?.message || 'Невідома помилка';
+            const errorMsg = error.response?.data?.error || 'Невідома помилка';
             setError('Не вдалося ввійти: ' + errorMsg);
         }
     };
