@@ -65,7 +65,7 @@ export const App = () => {
     localStorage.clear();
 
 
-    // Функція для запису тестового користувача
+    //  запис тестового користувача
     const mockUser = {
         id: 1,
         username: "petro_k",

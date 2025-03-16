@@ -46,8 +46,6 @@ const UserInfo = () => {
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem('user'));
 
-    console.log(user);
-
     if (!user) {
         return (
             <Button
@@ -63,8 +61,6 @@ const UserInfo = () => {
             navigate('user-profile/' + user.username);
     };
 
-
-    console.log(user.avatar);
 
     return (
         <div className={classes.userCard}>
