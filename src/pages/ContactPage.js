@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4),
     width: "90%",
     maxWidth: 600,
-    backgroundColor: theme.palette.background.paper,
+      backgroundColor: 'rgba(255, 255, 255, 0.6)',
     boxShadow: theme.shadows[5],
     borderRadius: theme.shape.borderRadius,
     display: 'flex',
