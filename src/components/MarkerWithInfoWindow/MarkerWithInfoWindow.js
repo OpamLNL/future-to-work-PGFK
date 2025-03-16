@@ -3,33 +3,28 @@ import {
     Marker,
     useAdvancedMarkerRef,
 } from "@vis.gl/react-google-maps";
-import React, { useCallback, useState } from "react";
+import React from "react";
 
-export const MarkerWithInfoWindow = ({ markerData }) => {
+export const MarkerWithInfoWindow = ({
+    markerData,
+    isSelected,
+    onMarkerClick,
+}) => {
     const [markerRef, marker] = useAdvancedMarkerRef();
-
-    const [infoWindowShown, setInfoWindowShown] = useState(false);
-
-    const handleMarkerClick = useCallback(
-        () => setInfoWindowShown((isShown) => !isShown),
-        []
-    );
-
-    const handleClose = useCallback(() => setInfoWindowShown(false), []);
 
     return (
         <>
             <Marker
                 ref={markerRef}
                 position={markerData.position}
-                onClick={handleMarkerClick}
+                onClick={onMarkerClick}
             />
 
-            {infoWindowShown && (
+            {isSelected && (
                 <InfoWindow
-                    anchor={marker}
-                    onClose={handleClose}
                     style={{ color: "black" }}
+                    anchor={marker}
+                    onClose={() => onMarkerClick(null)}
                 >
                     <h2>{markerData.title}</h2>
                     <p>{markerData.address}</p>

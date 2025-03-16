@@ -10,12 +10,9 @@ export const getCoordinates = async (address, apiKey) => {
     try {
         const response = await fetch(url);
 
-        console.log("Server response:", await response);
         const data = await response.json();
-        console.log("Data:", data);
 
         if (data.status === "OK") {
-            console.log("Gooooooood");
             return data.results[0].geometry.location;
         } else {
             throw new Error("Адресу не знайдено");

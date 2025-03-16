@@ -1,8 +1,8 @@
 import { axiosInstance } from "../api/axiosConfig";
+import { apiBaseURL } from "../configs/urls";
 
 export const fetchCompaniesLocation = async () => {
-    //const url = "https://abbd-188-163-68-67.ngrok-free.app/api/companies/";
-    const url = "http://localhost:4000/data";
+    const url = `${apiBaseURL}/api/companies/`;
 
     try {
         const response = await axiosInstance.get(url, {
@@ -12,15 +12,12 @@ export const fetchCompaniesLocation = async () => {
             },
         });
 
-        console.log("Server response:", response.data);
-
         if (response.data?.data) {
             return response.data.data;
         } else {
             throw new Error("Невірна структура відповіді від бекенду");
         }
     } catch (error) {
-        console.error("Помилка при отриманні даних:", error.message);
         throw error;
     }
 };
