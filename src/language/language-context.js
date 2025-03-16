@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 
-const LanguageContext = createContext("en-US");
+const LanguageContext = createContext("uk-UA");
 
 const LanguageProvider = ({ children }) => {
     const [language, setLanguage] = useState("en-US");
