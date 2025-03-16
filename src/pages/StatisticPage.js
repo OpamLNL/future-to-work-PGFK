@@ -92,6 +92,7 @@ export const StatisticPage = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
+
                         {employers.map((employer, index) => (
                             <TableRow key={index}>
                                 <TableCell>{employer.name}</TableCell>

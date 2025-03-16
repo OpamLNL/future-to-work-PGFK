@@ -124,10 +124,7 @@ export const HomePage = () => {
             </Button>
             </Link>
 
-
         </Container>
-
-
 
     );
 };
