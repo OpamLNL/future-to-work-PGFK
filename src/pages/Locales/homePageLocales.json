@@ -15,8 +15,8 @@
 
   {
     "text1": {
-      "en-US": " Why FairView?",
-      "uk-UA": " Чому FairView?"
+      "en-US": "Why FairView?",
+      "uk-UA": "Чому FairView?"
     }
   },
   {
@@ -48,10 +48,11 @@
       "en-US": "FairView helps companies create an inclusive work environment while allowing candidates to interview comfortably and stress-free.",
       "uk-UA": "FairView допомагає компаніям створювати інклюзивне робоче середовище, а кандидатам – проходити співбесіди комфортно та без стресу."
     }
+  },
+  {
+    "buttonStatistic": {
+      "en-US": "Employer Inclusivity Statistics",
+      "uk-UA": "Статистика інклюзивності роботодавців"
+    }
   }
 ]
-
-
-
-
-

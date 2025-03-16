@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { Container, Typography } from '@mui/material';
+import {Link} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { LanguageContext } from "../language/language-context";
 import homePageLocales from './Locales/homePageLocales.json';
+import {Button, Icon} from "../components";
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -72,6 +74,7 @@ export const HomePage = () => {
     const classes = useStyles();
     const language = useContext(LanguageContext);
 
+
     return (
         <Container className={classes.container}>
             <Typography variant="h3" className={classes.title}>
@@ -107,6 +110,24 @@ export const HomePage = () => {
                 {`${homePageLocales.find(item => item.hasOwnProperty('subtitle2'))?.subtitle2[language.language] || ''}`}
             </Typography>
 
+            <Link key={1} to={'/statistic'} style={{ textDecoration: 'none', width: '100%' }}>
+            <Button
+                style={{
+                    height: '80px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '2px'
+                }}
+            >
+                <span> {`${homePageLocales.find(item => item.hasOwnProperty('buttonStatistic'))?.buttonStatistic[language.language] || ''}`}</span>
+            </Button>
+            </Link>
+
+
         </Container>
+
+
+
     );
 };

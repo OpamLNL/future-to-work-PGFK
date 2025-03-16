@@ -1,236 +1,113 @@
-import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography, CircularProgress, Container } from '@mui/material';
-import VolumeUpIcon from '@material-ui/icons/VolumeUp';
-import { apiBaseURL, epicWorksURL, urls } from '../configs/urls';
-import { SectionContainer } from "../components/Containers";
-import {FavoriteBadge, RoundButton, TagBadge} from "../components";
-import {parseImages} from "../services/ParseImages";
-import {speakText} from "../services/SpeakText";
-import {parseTags} from "../services/ParseTags";
-
-const IMG_API = apiBaseURL + epicWorksURL;
+import React, { useContext } from 'react';
+import { Container, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button } from '@mui/material';
+import { makeStyles } from "@material-ui/core/styles";
+import { LanguageContext } from "../language/language-context";
+import statisticLocales from './Locales/statisticLocales.json';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
+import {RoundButton} from "../components";
 
 const useStyles = makeStyles((theme) => ({
-    workContainer: {
-        width: '800px',
-        padding: theme.spacing(4),
-        margin: 'auto',
-        color: theme.palette.text.primary,
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'start',
+        minHeight: '100vh',
+        padding: theme.spacing(2),
+        backgroundColor: 'rgba(255, 255, 255, 0.7)', // Напівпрозорий фон
         borderRadius: theme.shape.borderRadius,
-        boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-        display: 'grid',
-        justifyContent: 'center',
-        justifyItems: 'center',
-        gridTemplateColumns: '1fr 1fr',
-        gridTemplateRows: 'auto',
-        gap: theme.spacing(2),
-        [theme.breakpoints.down('md')]: {
-            gridTemplateColumns: '1fr',
+        [theme.breakpoints.up('sm')]: {
             padding: theme.spacing(3),
-            width: '100%',
         },
-        [theme.breakpoints.down('sm')]: {
-            padding: theme.spacing(2),
-            width: '100%',
+        [theme.breakpoints.up('md')]: {
+            padding: theme.spacing(4),
         },
+        overflow: 'hidden',
     },
-    headerContainer: {
-        gridColumn: '1 / 3',
+    title: {
+        fontSize: '2rem',
+        fontFamily: theme.typography.fontFamily,
+        marginBottom: theme.spacing(2),
         textAlign: 'center',
-        [theme.breakpoints.down('md')]: {
-            gridColumn: '1 / 2',
-            gridRow: "1 / 1",
+        color: theme.palette.primary.contrastText,
+        [theme.breakpoints.up('sm')]: {
+            fontSize: '2.5rem',
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '3rem',
         },
     },
-    textContainer: {
-        gridColumn: '2 / 3',
-        gridRow: '2 / 3',
-        padding: theme.spacing(2),
-        color: theme.palette.text.primary,
-        borderRadius: theme.shape.borderRadius,
-        boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: theme.spacing(2),
-        alignItems: 'center',
-        [theme.breakpoints.down('md')]: {
-            gridColumn: '1 / 2',
-            gridRow: "3 / 3",
-        },
+    table: {
+        minWidth: 650,
+        backgroundColor: 'transparent', // Видалено білий фон у таблиці
     },
-    workImageBorder: {
-        gridColumn: '1 / 1',
-        gridRow: '2 / 4',
-        width: '300px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        [theme.breakpoints.down('md')]: {
-            gridColumn: '1 / 2',
-            gridRow: '4 / 4',
-            flexDirection: 'row',
-            marginBottom: theme.spacing(8),
-        },
+    checkIcon: {
+        color: theme.palette.success.main,
     },
-    workImage: {
-        width: '100%',
-        borderRadius: theme.shape.borderRadius,
-        objectFit: 'cover',
-        border: '4px solid white',
-        transition: 'transform 0.3s ease-in-out',
-        '&:hover': {
-            transform: 'scale(1.1)',
-        },
-        [theme.breakpoints.down('sm')]: {
-            width: '50%',
-        },
+    cancelIcon: {
+        color: theme.palette.error.main,
     },
-    tagsContainer: {
-        gridColumn: '2 / 3',
-        gridRow: '3 / 4',
-        padding: theme.spacing(1),
-        display: 'flex',
-        flexDirection: 'column',
-        flexWrap: "wrap",
-        gap: theme.spacing(1),
-        alignItems: 'center',
-        [theme.breakpoints.down('md')]: {
-            gridColumn: '1 / 1',
-            gridRow: "2 / 2",
-        },
+    button: {
+        fontSize: '0.875rem',
+        padding: theme.spacing(0.5, 2),
+        textTransform: 'none',
     },
-    linksContainer: {
-        gridColumn: '1 / 3',
-        gridRow: '4 / 5',
-        padding: theme.spacing(2),
-        display: 'flex',
-        flexDirection: 'column',
-        gap: theme.spacing(2),
-        alignItems: 'center',
-        [theme.breakpoints.down('md')]: {
-            gridColumn: '1 / 2',
-            gridRow: "5 / 5",
-        },
-    },
-    workLabel: {
-        fontWeight: theme.typography.fontWeightMedium,
-        color: theme.palette.text.secondary,
-    },
-    workValue: {
-        fontWeight: theme.typography.fontWeightBold,
-        color: theme.palette.text.primary,
-    },
-    titleAndSpeaker: {
-        display: "flex",
-        flexDirection: "row",
+    smallCell: {
+        width: '150px', // Зменшена ширина колонок
     },
 }));
 
+const employers = [
+    { name: "TechNova", diversity: true, fairHiring: true, chatTolerance: true },
+    { name: "FutureWave", diversity: true, fairHiring: true, chatTolerance: false },
+    { name: "InnoSoft", diversity: false, fairHiring: true, chatTolerance: true },
+    { name: "CloudSphere", diversity: true, fairHiring: false, chatTolerance: true },
+    { name: "QuantumEdge", diversity: true, fairHiring: true, chatTolerance: false },
+    { name: "Nexus Solutions", diversity: true, fairHiring: true, chatTolerance: true },
+    { name: "CodeHorizon", diversity: true, fairHiring: true, chatTolerance: true },
+    { name: "ByteLogic", diversity: false, fairHiring: true, chatTolerance: true },
+    { name: "CyberNest", diversity: true, fairHiring: true, chatTolerance: false },
+    { name: "SkyNetics", diversity: true, fairHiring: false, chatTolerance: true }
+];
 
-
-
-export const StatisticPage = ({ epicWorkId }) => {
+export const StatisticPage = () => {
     const classes = useStyles();
-
-    const [workData, setWorkData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [isSpeaking, setIsSpeaking] = useState(false);
-
-
-
-    if (loading) {
-        return (
-            <Container>
-                <CircularProgress color="secondary" />
-            </Container>
-        );
-    }
-
-    const images = parseImages(workData.images);
-    const tags = parseTags(workData?.tags);
+    const language = useContext(LanguageContext);
 
     return (
-        <div className={classes.workContainer}>
-            <div className={classes.headerContainer}>
-                <Typography variant="h4" gutterBottom>{workData?.title}</Typography>
-            </div>
-            <SectionContainer className={classes.workImageBorder}>
-                {workData?.images && workData.images.length > 0 && (
-                    <>
-                        <img src={IMG_API + images[0]} alt={workData?.title} className={classes.workImage} />
-                        <img src={IMG_API + images[1]} alt={workData?.title} className={classes.workImage} />
-                    </>
-                )}
-            </SectionContainer>
-
-            <SectionContainer className={classes.textContainer}>
-                <div className={classes.titleAndSpeaker}>
-                    <div>
-                        <Typography className={classes.workLabel}>Title (Original):</Typography>
-                        <Typography>{workData?.title_original}</Typography>
-                    </div>
-                    <div>
-                        <RoundButton onClick={() => speakText(workData?.title_original)} disabled={isSpeaking}>
-                            <VolumeUpIcon />
-                        </RoundButton>
-                        <FavoriteBadge objectId={workData.id} type='epicWork'/>
-                    </div>
-                </div>
-
-                <div className={classes.titleAndSpeaker}>
-                    <div>
-                        <Typography className={classes.workLabel}>Title (English):</Typography>
-                        <Typography>{workData?.title_english}</Typography>
-                    </div>
-                    <div>
-                        <RoundButton onClick={() => speakText(workData?.title_english)} disabled={isSpeaking}>
-                            <VolumeUpIcon />
-                        </RoundButton>
-                    </div>
-                </div>
-
-                <div className={classes.titleAndSpeaker}>
-                    <div>
-                        <Typography>{workData?.summary}</Typography>
-                    </div>
-                    <div>
-                        <RoundButton onClick={() => speakText(workData?.summary)} disabled={isSpeaking}>
-                            <VolumeUpIcon />
-                        </RoundButton>
-                    </div>
-                </div>
-            </SectionContainer>
-
-            <SectionContainer className={classes.tagsContainer}>
-                {tags.map((tag, index) => (
-                    <TagBadge key={index}>
-                        {tag}
-                    </TagBadge>
-                ))}
-            </SectionContainer>
-
-            <SectionContainer className={classes.linksContainer}>
-                <Typography className={classes.workLabel}>Full Text Link (English):</Typography>
-                <Typography>
-                    <a href={workData?.full_text_link_english} target="_blank" rel="noopener noreferrer">
-                        {workData?.full_text_link_english}
-                    </a>
-                </Typography>
-                <Typography className={classes.workLabel}>Full Text Link (Ukrainian):</Typography>
-                <Typography>
-                    <a href={workData?.full_text_link_ukrainian} target="_blank" rel="noopener noreferrer">
-                        {workData?.full_text_link_ukrainian}
-                    </a>
-                </Typography>
-                <Typography className={classes.workLabel}>Full Text Link (Original):</Typography>
-                <Typography>
-                    <a href={workData?.full_text_link_original} target="_blank" rel="noopener noreferrer">
-                        {workData?.full_text_link_original}
-                    </a>
-                </Typography>
-            </SectionContainer>
-        </div>
+        <Container className={classes.container}>
+            <Typography variant="h3" className={classes.title}>
+                {`${statisticLocales.find(item => item.hasOwnProperty('title'))?.title[language.language] || ''}`}
+            </Typography>
+            <TableContainer>
+                <Table className={classes.table} aria-label="employers statistics">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell><strong>Компанія</strong></TableCell>
+                            <TableCell align="center" className={classes.smallCell}><strong>Інклюзивність</strong></TableCell>
+                            <TableCell align="center" className={classes.smallCell}><strong>Неупереджений найм</strong></TableCell>
+                            <TableCell align="center" className={classes.smallCell}><strong>Толерантність у чатах</strong></TableCell>
+                            <TableCell align="center"><strong>Дії</strong></TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {employers.map((employer, index) => (
+                            <TableRow key={index}>
+                                <TableCell>{employer.name}</TableCell>
+                                <TableCell align="center" className={classes.smallCell}>{employer.diversity ? <CheckCircleIcon className={classes.checkIcon} /> : <CancelIcon className={classes.cancelIcon} />}</TableCell>
+                                <TableCell align="center" className={classes.smallCell}>{employer.fairHiring ? <CheckCircleIcon className={classes.checkIcon} /> : <CancelIcon className={classes.cancelIcon} />}</TableCell>
+                                <TableCell align="center" className={classes.smallCell}>{employer.chatTolerance ? <CheckCircleIcon className={classes.checkIcon} /> : <CancelIcon className={classes.cancelIcon} />}</TableCell>
+                                <TableCell align="center">
+                                    <RoundButton >
+                                        ✎ Відгук
+                                    </RoundButton>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </Container>
     );
 };
-
