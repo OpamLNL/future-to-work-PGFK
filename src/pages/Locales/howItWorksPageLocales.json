@@ -1,0 +1,62 @@
+{
+  "title": {
+    "en-US": "How It Works — FairView",
+    "uk-UA": "Як це працює — FairView:"
+  },
+  "intro": {
+    "en-US": "At FairView, we make the employment process simple, fair, and accessible to everyone. Whether you're looking for a job or seeking the best candidates, our platform adapts to your needs. Here’s how it works:",
+    "uk-UA": "На FairView ми робимо процес працевлаштування простим, справедливим і доступним для всіх. Незалежно від того, чи ви шукаєте роботу, чи хочете знайти найкращих кандидатів, наша платформа адаптується до ваших потреб. Ось як це працює:"
+  },
+  "step1Title": {
+    "en-US": "1. Registration",
+    "uk-UA": "1. Реєстрація"
+  },
+  "step1Text": {
+    "en-US": "Registration is your first step into a world where physical, mental, or psychological barriers no longer stand in the way. We welcome everyone ready to work and grow.",
+    "uk-UA": "Реєстрація — ваш перший крок до світу, де фізичні, ментальні чи психологічні бар’єри більше не стоять на заваді. Ми вітаємо всіх, хто готовий працювати і розвиватися."
+  },
+  "step1Candidates": {
+    "en-US": "For candidates: Create an account in a few minutes with basic information. We don’t require resumes or complex forms at this stage — your talent and skills will speak for themselves later. After registration, you’ll get access to a personal dashboard where you can customize the process to your needs.",
+    "uk-UA": "Для кандидатів: Створіть обліковий запис за кілька хвилин, вказавши базову інформацію. Ми не вимагаємо резюме чи складних форм на цьому етапі — ваш талант і навички скажуть усе за вас пізніше. Після реєстрації ви отримуєте доступ до особистого кабінету, де зможете налаштувати процес під свої потреби."
+  },
+  "step1Employers": {
+    "en-US": "For employers: Register your company by providing its name, contact details, and a brief description. You’ll gain access to a management panel where you can create vacancies and browse candidate profiles. We’ll help you find qualified professionals, including those often overlooked by traditional hiring methods — war heroes, people with disabilities, or those with unique experiences.",
+    "uk-UA": "Для роботодавців: Зареєструйте свою компанію, вказавши назву, контактні дані та короткий опис. Ви отримаєте доступ до панелі управління, де зможете створювати вакансії та переглядати профілі кандидатів. Ми допоможемо вам знайти кваліфікованих спеціалістів, включно з тими, кого часто пропускають традиційні методи працевлаштування — героями війни, людьми з інвалідністю чи унікальним досвідом."
+  },
+  "step2Title": {
+    "en-US": "2. Filling Out the Questionnaire",
+    "uk-UA": "2. Заповнення анкети"
+  },
+  "step2Text": {
+    "en-US": "After registration, candidates fill out a short questionnaire. We want to know your needs and preferences: which interview format suits you best? Do you need adaptations like text support, extra time, or a calm environment? This step helps us create a comfortable process tailored to your unique circumstances, removing barriers along the way.",
+    "uk-UA": "Після реєстрації кандидати заповнюють коротку анкету. Ми хочемо дізнатися про ваші потреби та вподобання: який формат співбесіди для вас найзручніший? Чи потрібні вам адаптації, наприклад, текстова підтримка, додатковий час або спокійне середовище? Цей крок допомагає нам створити комфортний процес, який враховує ваші унікальні обставини та усуває бар’єри."
+  },
+  "step3Title": {
+    "en-US": "3. AI Assistance",
+    "uk-UA": "3. Допомога ШІ"
+  },
+  "step3Text": {
+    "en-US": "Our artificial intelligence becomes your reliable assistant. It analyzes your skills, experience, and preferences to find vacancies that match you. At the same time, for companies, we provide access to talented professionals, including those often unnoticed due to barriers in traditional interviews.",
+    "uk-UA": "Наш штучний інтелект стане вашим надійним помічником. Він проаналізує ваші навички, досвід і побажання, щоб знайти вакансії, які вам підходять. Тим самим для компаній ми пропонуємо доступ до талановитих фахівців, включаючи тих, хто часто залишається поза увагою через бар’єри традиційних співбесід."
+  },
+  "step4Title": {
+    "en-US": "4. Recommendations",
+    "uk-UA": "4. Рекомендації"
+  },
+  "step4Text": {
+    "en-US": "Based on your questionnaire and profile, the platform automatically recommends vacancies from verified employers looking for candidates like you. Recommendations update in real-time based on candidate activity and employer requirements.",
+    "uk-UA": "На основі вашої анкети та профілю платформа автоматично рекомендує вакансії від перевірених роботодавців, які шукають саме таких кандидатів, як ви. Рекомендації оновлюються в реальному часі на основі активності кандидата та вимог роботодавців."
+  },
+  "step5Title": {
+    "en-US": "5. Interview",
+    "uk-UA": "5. Співбесіда"
+  },
+  "step5Text": {
+    "en-US": "When you’re ready, it’s time for the interview. It takes place in the format you’ve chosen, tailored to your needs. Employers partnering with FairView are trained to work with diverse candidates, making the process fair and comfortable for all parties.",
+    "uk-UA": "Коли ви готові, настає час співбесіди. Вона проходить у вибраному вами форматі з урахуванням ваших потреб. Роботодавці, які співпрацюють із “FairView”, навчені працювати з різноманітними кандидатами, що робить процес справедливим і комфортним для всіх сторін."
+  },
+  "closing": {
+    "en-US": "Good luck!",
+    "uk-UA": "Удачі!"
+  }
+}
